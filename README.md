@@ -2,7 +2,9 @@ Proyecto semillero realizando una SinglePage Mostrando los participantes e infor
 Repositorio: https://github.com/tetsudevelopment/Market-Mix-FastFood
 Pagina lanzada: 
 
-Integrantes:
+#Integrantes:
+```
 Carlos Andres Montoya Munera
 Diego Andres Saavedra Tinoco
 Brayan Estaban Marin Calderon
+```
