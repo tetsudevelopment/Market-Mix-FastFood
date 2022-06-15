@@ -1,0 +1,9 @@
+:root{
+  --textColor: #FFFFFF;
+  --hamburguesa:#F83939;
+  --hotDog:#F2D22B;
+  --header-footer:#423F3F;
+}
+*{
+  font-family: 'Oswald', sans-serif;
+}
