@@ -1,9 +1,28 @@
-:root{
+:root {
   --textColor: #FFFFFF;
-  --hamburguesa:#F83939;
-  --hotDog:#F2D22B;
-  --header-footer:#423F3F;
+  --hamburguesa: #F83939;
+  --hotDog: #F2D22B;
+  --header-footer: #423F3F;
 }
-*{
+
+* {
   font-family: 'Oswald', sans-serif;
+}
+
+.modal-body {
+  background-color: var(--hamburguesa);
+}
+
+.modal-body-image {
+  background-color: #FFFFFF;
+  margin: 30px;
+  padding: 50px;
+  border-radius: 4%;
+}
+
+.modal-body img {
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: auto;
 }
