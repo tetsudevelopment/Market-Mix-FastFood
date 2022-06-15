@@ -9,8 +9,16 @@
   font-family: 'Oswald', sans-serif;
 }
 
-.modal-body {
+.modal-content{
   background-color: var(--hamburguesa);
+}
+
+.modal-title, .modal-footer p, h5{
+  color: #FFFFFF;
+}
+
+.modal-title{
+  margin-left: 40%;
 }
 
 .modal-body-image {
