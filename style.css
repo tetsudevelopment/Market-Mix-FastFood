@@ -1,9 +1,121 @@
 :root{
   --textColor: #FFFFFF;
   --hamburguesa:#F83939;
-  --hotDog:#F2D22B;
-  --header-footer:#423F3F;
+  --hotDog:#fda50f; 
 }
+
+#modal-content-h {
+  background-color: var(--hamburguesa);
+  color: #FFFFFF;
+}
+
+
+#modal-content-p {
+  background-color: var(--hotDog);
+  color: #FFFFFF;
+}
+
+
+
+.modal-body-image {
+  background-color: #FFFFFF;
+  margin: 30px;
+  padding: 50px;
+  border-radius: 4%;
+}
+
+.modal-body img {
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+#login{
+  color: var(--textColor);
+}
+#login label{
+  color: black;
+}
+#button-image img {
+  height: 30px;
+}
+
 *{
   font-family: 'Oswald', sans-serif;
+}
+
+#header img {
+  width: 70px;
+}
+#header small{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#main .carousel-inner img {
+  height: 500px;
+  object-fit: cover;
+}
+@media (max-width: 588px) {
+  #main .carousel-inner img {
+      height: 40vh;
+    }
+}
+
+#carousel {
+  position: relative;
+  filter: grayscale(30%);
+}
+
+#carousel .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  z-index: 1;
+}
+
+#carousel .overlay .container,
+#carousel .overlay .row {
+  height: 100%;
+}
+.row-hotDogs{
+  height: 50px;
+
+}
+.row-hotDogs .col{
+  background-color: var(--hotDog);
+  color: var(--textColor);
+  font-weight: bolder;
+}
+.row-hamburguesa .col {
+  background-color: var(--hamburguesa);
+  color: var(--textColor);
+  font-weight: bolder;
+}
+
+.card-img1{
+  height: 190px;
+  width: 190px;
+}
+.btn-hamburger{
+  background-color: var(--hamburguesa);
+  color: var(--textColor);
+  font-weight: bold;
+}
+.btn-hotDog {
+  background-color: var(--hotDog);
+  color: var(--textColor);
+  font-weight: bold;
+}
+#button-image img{
+  height: 20px;
+}
+
+#footer a {
+  color: white;
+  text-decoration: none;
 }
