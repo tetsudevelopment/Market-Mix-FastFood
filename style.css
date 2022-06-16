@@ -1,7 +1,7 @@
 :root {
   --textColor: #FFFFFF;
   --hamburguesa: #F83939;
-  --hotDog: #F2D22B;
+  --hotDog: #fda50f;
   --header-footer: #423F3F;
 }
 
@@ -9,8 +9,14 @@
   font-family: 'Oswald', sans-serif;
 }
 
-.modal-content{
-  background-color: var(--hamburguesa);
+#modal-content-h{
+  background-color: var(--hamburguesa); 
+  color: #FFFFFF;
+}
+
+
+#modal-content-p{
+  background-color: var(--hotDog);
   color: #FFFFFF;
 }
 
@@ -28,4 +34,8 @@
   width: 200px;
   display: block;
   margin: auto;
+}
+
+#button-image img{
+  height: 30px;
 }
