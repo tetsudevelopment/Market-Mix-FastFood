@@ -48,8 +48,13 @@
 }
 
 #main .carousel-inner img {
-  max-height: 70vh;
+  height: 500px;
   object-fit: cover;
+}
+@media (max-width: 588px) {
+  #main .carousel-inner img {
+      height: 40vh;
+    }
 }
 
 #carousel {
