@@ -3,7 +3,7 @@ Proyecto semillero realizando una SinglePage Mostrando los participantes e infor
 > https://github.com/tetsudevelopment/Market-Mix-FastFood
 
 # Pagina lanzada: 
-[sitio web](https://tetsudevelopment.github.io/Market-Mix-FastFood/)
+> https://tetsudevelopment.github.io/Market-Mix-FastFood/
 # Integrantes:
 ```
 Carlos Andres Montoya Munera
