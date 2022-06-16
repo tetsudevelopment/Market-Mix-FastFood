@@ -11,9 +11,6 @@
 
 .modal-content{
   background-color: var(--hamburguesa);
-}
-
-.modal-title, .modal-footer p, h5{
   color: #FFFFFF;
 }
 
