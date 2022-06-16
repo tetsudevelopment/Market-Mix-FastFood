@@ -30,7 +30,12 @@
   display: block;
   margin: auto;
 }
-
+#login{
+  color: var(--textColor);
+}
+#login label{
+  color: black;
+}
 #button-image img {
   height: 30px;
 }
@@ -107,7 +112,7 @@
   font-weight: bold;
 }
 #button-image img{
-  height: 40px;
+  height: 20px;
 }
 
 #footer a {
