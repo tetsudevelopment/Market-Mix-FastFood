@@ -62,7 +62,16 @@
   height: 190px;
   width: 190px;
 }
-
+.btn-hamburger{
+  background-color: var(--hamburguesa);
+  color: var(--textColor);
+  font-weight: bold;
+}
+.btn-hotDog {
+  background-color: var(--hotDog);
+  color: var(--textColor);
+  font-weight: bold;
+}
 #button-image img{
   height: 40px;
 }
