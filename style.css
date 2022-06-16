@@ -4,7 +4,36 @@
   --hotDog:#fda50f; 
 }
 
+#modal-content-h {
+  background-color: var(--hamburguesa);
+  color: #FFFFFF;
+}
 
+
+#modal-content-p {
+  background-color: var(--hotDog);
+  color: #FFFFFF;
+}
+
+
+
+.modal-body-image {
+  background-color: #FFFFFF;
+  margin: 30px;
+  padding: 50px;
+  border-radius: 4%;
+}
+
+.modal-body img {
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+
+#button-image img {
+  height: 30px;
+}
 
 *{
   font-family: 'Oswald', sans-serif;

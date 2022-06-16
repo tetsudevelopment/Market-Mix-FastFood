@@ -117,7 +117,7 @@
             <div class="card col h-100">
               <div class="container">
                 <div class="row">
-                  <div class="col text-center btn">
+                  <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-h-1">
                     <img src="assets/food/hamburgerMegaStacker.png" class="card-img-top card-img1 mb-2 mt-3"
                       alt="Hamburguesa Mega Stacker">
                   </div>
@@ -155,7 +155,7 @@
             <div class="card col h-100">
               <div class="container">
                 <div class="row">
-                  <div class="col text-center btn">
+                  <div class="col text-center btn " data-bs-toggle="modal" data-bs-target="#exampleModal-h-2">
                     <img src="assets/food/hamburgerWhopper.png" class="card-img-top card-img1 mb-2 mt-3"
                       alt="Hamburguesa Whopper">
                   </div>
@@ -193,7 +193,7 @@
             <div class="card col h-100">
               <div class="container">
                 <div class="row">
-                  <div class="col text-center btn">
+                  <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-h-3">
                     <img src="assets/food/hamburgerXlQuesoTocineta.png" class="card-img-top card-img1 mb-2 mt-3"
                       alt="Hamburguesa Xl Queso Tocineta">
                   </div>
@@ -230,7 +230,7 @@
             <div class="card col h-100">
               <div class="container">
                 <div class="row">
-                  <div class="col text-center btn">
+                  <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-h-4">
                     <img src="assets/food/hamburgerXTBQQ.png" class="card-img-top card-img1 mb-2 mt-3"
                       alt="Hamburguesa XT BQQ">
                   </div>
@@ -290,7 +290,7 @@
             <div class="card col h-100">
               <div class="container">
                 <div class="row">
-                  <div class="col text-center btn">
+                  <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-p-1">
                     <img src="assets/food/HotDogAmericano.jpg" class="card-img-top card-img1 mb-2 mt-3"
                       alt="Hot Dog Americano">
                   </div>
@@ -328,7 +328,7 @@
             <div class="card col h-100">
               <div class="container">
                 <div class="row">
-                  <div class="col text-center btn">
+                  <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-p-2">
                     <img src="assets/food/HotDogArgentino.jpg" class="card-img-top card-img1 mb-2 mt-3"
                       alt="Hot Dog Argentino">
                   </div>
@@ -366,7 +366,7 @@
             <div class="card col h-100">
               <div class="container">
                 <div class="row">
-                  <div class="col text-center btn">
+                  <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-p-3">
                     <img src="assets/food/HotDogAzul.jpg" class="card-img-top card-img1 mb-2 mt-3" alt="Hot Dog Azul">
                   </div>
                 </div>
@@ -403,7 +403,7 @@
             <div class="card col h-100">
               <div class="container">
                 <div class="row">
-                  <div class="col text-center btn">
+                  <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-p-4">
                     <img src="assets/food/HotDogBorracho.jpg" class="card-img-top card-img1 mb-2 mt-3"
                       alt="Hot Dog Borracho">
                   </div>
@@ -469,9 +469,522 @@
   </footer>
   <!--/Footer  -->
 
+  
   <!-- Modal -->
-
-  <!-- /Modal -->
+  <!-- Hamburguesas -->
+  <section id="hamburguesa-modal">
+    <!-- Modal hamburger Mega Stacker -->
+    <div class="modal fade" id="exampleModal-h-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content-h">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hamburguesa Mega Stacker</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center id="modal-body-h">
+            <div class="modal-body-image">
+              <img src="assets/food/hamburgerMegaStacker.png" alt="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h5 id="ingredients">Ingredientes:</h5>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Cuenta con triple carne de res 113 gr C/U a la parrilla, queso, tocineta crujiente y deliciosa
+                      salsa stacker sobre un pan con ajonjolí.</p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h4>$35.000</h4>
+                    </div>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid mb-2">
+                    <div class="row">
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/mas.png" alt="" class="btn button-image">
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center">
+                        <small class="fw-bold">Cantidad: 100</small>
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/menos.png" alt="" class="btn button-image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar cantidad -->
+                  <!-- Botón Agregar -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center mt-3">
+                        <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Botón Agregar -->
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Hamburguesa Mega Stacker -->
+  
+    <!-- Hamburguesa Whopper -->
+    <div class="modal fade" id="exampleModal-h-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content-h">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hamburguesa Whopper</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="modal-body-image">
+              <img src="assets/food/hamburgerWhopper.png" alt="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h5 id="ingredients">Ingredientes:</h5>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Nuestra WHOPPER® cuenta con carne 113 gr de res a la parrilla, preparada con jugosos tomates,
+                      lechuga recién cortada, pepinillos, cebollas en rodajas y cremosa mayonesa sobre un pan con
+                      ajonjolí
+                      tostado perfectamente y ketchup ¡Pídela en COMBO con papas a la francesa y tu bebida favorita!</p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h4>$22.000</h4>
+                    </div>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid mb-2">
+                    <div class="row">
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/mas.png" alt="" class="btn button-image">
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center">
+                        <small class="fw-bold">Cantidad: 100</small>
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/menos.png" alt="" class="btn button-image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar cantidad -->
+                  <!-- Botón Agregar -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center mt-3">
+                        <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Botón Agregar -->
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Hamburguesa Whopper -->
+  
+    <!-- Hamburguesa Xl Queso Tocineta -->
+    <div class="modal fade" id="exampleModal-h-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content-h">
+          <div class="modal-header ">
+            <h5 class="modal-title" id="exampleModalLabel">Hamburguesa Xl Queso Tocineta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="modal-body-image">
+              <img src="assets/food/hamburgerXlQuesoTocineta.png" alt="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h5 id="ingredients">Ingredientes:</h5>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Cuenta con doble carne de res 48 gr c/u a la parrilla, jugosos tomates, lechuga recién cortada, y
+                      cremosa mayonesa sobre un pan sandwich con ajonjolí.</p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h4>$22.000</h4>
+                    </div>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid mb-2">
+                    <div class="row">
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/mas.png" alt="" class="btn button-image">
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center">
+                        <small class="fw-bold">Cantidad: 100</small>
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/menos.png" alt="" class="btn button-image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar cantidad -->
+                  <!-- Botón Agregar -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center mt-3">
+                        <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Botón Agregar -->
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Hamburguesa Xl Queso Tocineta -->
+  
+    <!-- Hamburguesa XT BQQ -->
+    <div class="modal fade" id="exampleModal-h-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content-h">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hamburguesa XT BBQ</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="modal-body-image">
+              <img src="assets/food/hamburgerXTBQQ.png" alt="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h5 id="ingredients">Ingredientes:</h5>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Cuenta con una carne de res a la parrilla de 198 gr, queso, lechuga, tomates, cebolla crujiente,
+                      salsa BBQ y cremosa mayonesa sobre un pan esponjoso de maíz.</p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h4>$32.000</h4>
+                    </div>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid mb-2">
+                    <div class="row">
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/mas.png" alt="" class="btn button-image">
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center">
+                        <small class="fw-bold">Cantidad: 100</small>
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/menos.png" alt="" class="btn button-image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar cantidad -->
+                  <!-- Botón Agregar -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center mt-3">
+                        <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Botón Agregar -->
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Hamburguesa XT BQQ -->
+  </section>
+  <!-- /Hamburguesas -->
+  
+  <!-- Perros calientes -->
+  <section id="hot-dog-modal">
+    <!-- Hot Dog Americano -->
+    <div class="modal fade" id="exampleModal-p-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content-p">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hot Dog Americano</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center" id="modal-body-p">
+            <div class="modal-body-image">
+              <img src="assets/food/HotDogAmericano.jpg" alt="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h5 id="ingredients">Ingredientes:</h5>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Bacon ahumado, doble queso, pepinillos, cebolla crunch, salsa de tomate y mostaza. Salchicha
+                      suiza,
+                      tocineta</p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h4>$18.000</h4>
+                    </div>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid mb-2">
+                    <div class="row">
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/mas.png" alt="" class="btn button-image">
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center">
+                        <small class="fw-bold">Cantidad: 100</small>
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/menos.png" alt="" class="btn button-image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar cantidad -->
+                  <!-- Botón Agregar -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center mt-3">
+                        <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Botón Agregar -->
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Hot Dog Americano -->
+  
+    <!-- Hot Dog Argentino -->
+    <div class="modal fade" id="exampleModal-p-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content-p">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hot Dog Argentino</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="modal-body-image">
+              <img src="assets/food/HotDogArgentino.jpg" alt="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h5 id="ingredients">Ingredientes:</h5>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Queso cervecero, pimentones asados, chimichurri y chorizo artesanal.</p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h4>$19.000</h4>
+                    </div>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid mb-2">
+                    <div class="row">
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/mas.png" alt="" class="btn button-image">
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center">
+                        <small class="fw-bold">Cantidad: 100</small>
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/menos.png" alt="" class="btn button-image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar cantidad -->
+                  <!-- Botón Agregar -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center mt-3">
+                        <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Botón Agregar -->
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Hot Dog Argentino -->
+  
+    <!-- Hot Dog Azul -->
+    <div class="modal fade" id="exampleModal-p-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content-p">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hot Dog Azul</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="modal-body-image">
+              <img src="assets/food/HotDogAzul.jpg" alt="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h5 id="ingredients">Ingredientes:</h5>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Queso roquefort, tomates rostizados, rugula, hongos, salchicha alemana.</p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h4>$18.000</h4>
+                    </div>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid mb-2">
+                    <div class="row">
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/mas.png" alt="" class="btn button-image">
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center">
+                        <small class="fw-bold">Cantidad: 100</small>
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/menos.png" alt="" class="btn button-image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar cantidad -->
+                  <!-- Botón Agregar -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center mt-3">
+                        <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Botón Agregar -->
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Hot Dog Azul -->
+  
+    <!-- Hot Dog Borracho -->
+    <div class="modal fade" id="exampleModal-p-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal-content-p">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hot Dog Borracho</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="modal-body-image">
+              <img src="assets/food/HotDogBorracho.jpg" alt="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h5 id="ingredients">Ingredientes:</h5>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p>Demiglace de Buchanan’s , cebollas caramelizadas con cerveza a8tesanal, queso cheddar y tocineta
+                      ahumada, Salchicha suiza,tocineta.</p>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h4>$19.000</h4>
+                    </div>
+                  </div>
+                  <!-- Ingresar cantidad -->
+                  <div class="container-fluid mb-2">
+                    <div class="row">
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/mas.png" alt="" class="btn button-image">
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center">
+                        <small class="fw-bold">Cantidad: 100</small>
+                      </div>
+                      <div class="col-lg col-md-4 col-12 text-center" id="button-image">
+                        <img src="assets/images/menos.png" alt="" class="btn button-image">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Ingresar cantidad -->
+                  <!-- Botón Agregar -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center mt-3">
+                        <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Botón Agregar -->
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Hot Dog Borracho -->
+  </section>
+  <!-- /Perros calientes -->
+  
+  <!-- /Modal --> 
   <script src="main.js"></script>
 </body>
 
