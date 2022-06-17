@@ -22,15 +22,14 @@
         <!-- Header -->
         <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <div class="container justify-content-start">
-
+        
             <!-- Logo del header -->
             <!-- /Logo del header -->
             <div class="container">
-              
               <div class="row">
                 <div class="col-12 col-sm-9  col-lg-6  ">
                   <div class="row h-100">
-                    <div class="col text-sm-start text-center">
+                    <div class="col">
                       <a class="navbar-brand" href="#">
                         <img src="assets/images/LogoPrimary.png" alt="Logo hamburguesa" class="btn">
                         <small>Comidas rápidas la 14</small>
@@ -45,30 +44,33 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                      <li class="nav-item text-md-center">
-                        <a class="nav-link " aria-current="page" href="#main" ata-bs-toggle="collapse">Información</a>
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#main" ata-bs-toggle="collapse">Información</a>
                       </li>
-                      <li class="nav-item text-md-center">
+                      <li class="nav-item">
                         <a class="nav-link" href="#hamburguesas" id="hamburguesa-nav">Hamburguesa</a>
                       </li>
-                      <li class="nav-item text-start text-sm-start text-md-center">
-                        <a class="nav-link" href="#hot-dogs" id="hot-dog">HotDogs</a>
+                      <li class="nav-item text-end">
+                        <a class="nav-link " href="#hot-dogs" id="hot-dog">HotDogs</a>
+                      </li>
+                      <li class="nav-item text-end me-2">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">Login</button>
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div class="col col-sm-1 text-end">
                   <div class="row">
-                    <div class="col offset-lg-3 ">
-                      <img src="assets/images/logoSecundary.png" alt="Logo hamburguesa" class="btn btn-logo"
-                        data-bs-toggle="modal" data-bs-target="#login">
+                    <div class="col   offset-lg-3 ">
+                      <img src="assets/images/logoSecundary.png" alt="Carrito" class="btn btn-logo">
+        
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-
+        
+        
           </div>
         </nav>
         <!--/Header -->
@@ -1037,26 +1039,29 @@
         <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog ">
             <div class="modal-content modal-dark bg-dark">
-              <div class="modal-header">
-                <div class="row justify-content-center">
+              <div class="modal-header justify-content-center" >
+                <div class="row ">
                   <div class="col">
-                    <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+                    <h5 class="modal-title fw-bold" id="exampleModalLabel">Inicio de sesión</h5>
                   </div>
                 </div>
               </div>
               <div class="modal-body">
+                <div class="container-fluid mb-2">
+                  <img src="assets/images/userLogin.png" alt="">
+                </div>
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="userId">
                   <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="userPin">
                   <label for="floatingPassword">Password</label>
                 </div>
               </div>
-              <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Log in</button>
+              <div class="modal-footer justify-content-center"> 
+                <button type="button" class="btn btn-primary me-2">Log in</button>
+                <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cancelar</button>
               </div>
             </div>
           </div>
@@ -1064,13 +1069,9 @@
         <!--/Login  -->
         <!-- /Modal -->
 
-
-
-
-
   </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="main.js"></script>
 </body>
 

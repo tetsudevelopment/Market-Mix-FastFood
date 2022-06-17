@@ -36,6 +36,10 @@
 #login label{
   color: black;
 }
+#login img{
+  width: 150px;
+  height: 150px;
+}
 #button-image img {
   height: 30px;
 }
