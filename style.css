@@ -3,51 +3,50 @@
   --hamburguesa:#F83939;
   --hotDog:#fda50f; 
 }
-
+* {
+  font-family: 'Oswald', sans-serif;
+}
+/* modales */
 #modal-content-h {
   background-color: var(--hamburguesa);
   color: #FFFFFF;
 }
 
-
 #modal-content-p {
   background-color: var(--hotDog);
   color: #FFFFFF;
 }
-
-
-
 .modal-body-image {
   background-color: #FFFFFF;
   margin: 30px;
   padding: 50px;
   border-radius: 4%;
 }
-
 .modal-body img {
   height: 200px;
   width: 200px;
   display: block;
   margin: auto;
 }
-#login{
+#login {
   color: var(--textColor);
 }
-#login label{
+
+#login label {
   color: black;
 }
-#login img{
+
+#login img {
   width: 150px;
   height: 150px;
 }
-#button-image img {
-  height: 30px;
-}
+/* /modales */
 
-*{
-  font-family: 'Oswald', sans-serif;
+/* Header */
+#exit{
+  width: 100px;
+  height:100px;
 }
-
 #header img {
   width: 70px;
 }
@@ -55,7 +54,8 @@
   font-weight: bold;
   font-size: 20px;
 }
-
+/* /Header */
+/* Main */
 #main .carousel-inner img {
   height: 500px;
   object-fit: cover;
@@ -65,12 +65,10 @@
       height: 40vh;
     }
 }
-
 #carousel {
   position: relative;
   filter: grayscale(30%);
 }
-
 #carousel .overlay {
   position: absolute;
   top: 0;
@@ -86,6 +84,8 @@
 #carousel .overlay .row {
   height: 100%;
 }
+/* /Main */
+/* Cards comidas */
 .row-hotDogs{
   height: 50px;
 
@@ -100,7 +100,6 @@
   color: var(--textColor);
   font-weight: bolder;
 }
-
 .card-img1{
   height: 190px;
   width: 190px;
@@ -118,8 +117,19 @@
 #button-image img{
   height: 20px;
 }
+/* Cards comidas */
 
+/* Cards empleados */
+#employee{
+  margin-top: 500px;
+}
+.employee img{
+  width: 200px;
+}
+/* Cards empleados */
+/* Footer */
 #footer a {
   color: white;
   text-decoration: none;
 }
+/* /Footer */
