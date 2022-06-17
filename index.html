@@ -55,7 +55,7 @@
                     <a class="nav-link" href="#hot-dogs" id="hot-dog">HotDogs</a>
                   </li>
                   <li class="nav-item text-start text-sm-start text-md-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
                       data-bs-target="#login">Login</button>
                   </li>
                 </ul>
@@ -115,49 +115,50 @@
 
     <!-- Tablas administrativos -->
     <!-- Tabla cocina -->
-            <section id="cocina">
-              <table class="table table-dark table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">N° Pedido</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Opciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <th scope="row">Pendiente</th>
-                    <td><button type="button" class="btn btn-warning">Ver</button>
-                      <button type="button" class="btn btn-success">Ok</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-            <!-- /Tabla cocina -->
-            <!-- Tabla mesero -->
-            <section id="mesero">
-              <table class="table table-dark table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">N° Pedido</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Opciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <th scope="row">Pendiente</th>
-                    <td>
-                      <button type="button" class="btn btn-success">Ok</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-            <!-- /Tabla mesero -->
+    <div class="m-5 text-center" id="cocina">
+      <table class="table table-dark table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">N° Pedido</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <th scope="row">Pendiente</th>
+            <td><button type="button" class="btn btn-warning" data-bs-toggle="modal"
+              data-bs-target="#ver-pedido">Ver</button>
+              <button type="button" class="btn btn-success">Ok</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /Tabla cocina -->
+    <!-- Tabla mesero -->
+    <div class="m-5 text-center" id="mesero">
+      <table class="table table-dark table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">N° Pedido</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <th scope="row">Listo</th>
+            <td>
+              <button type="button" class="btn btn-success">Ok</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- /Tabla mesero -->
     <!-- /Tablas administrativos -->
 
     <!--Hamburguesas -->
@@ -1191,6 +1192,68 @@
 
     </div>
     <!-- /Carrito de compras -->
+
+    <!-- Ver pedido -->
+    <div class="modal fade" id="ver-pedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><b>Pedido 1</b></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Cant</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><img src="/assets/food/hamburgerMegaStacker.png" alt="" style="height: 30px; width: 30px;"></th>
+                  <th scope="row">1</th>
+                  <td>H megastacker</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th><img src="/assets/food/HotDogAmericano.jpg" alt="" style="height: 30px; width: 30px;"></th>
+                  <th scope="row">2</th>
+                  <td>HD Americano</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th><img src="/assets/food/HotDogArgentino.jpg" alt="" style="height: 30px; width: 30px;"></th>
+                  <th scope="row">2</th>
+                  <td>HD Argentino</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th scope="row"></th>
+                  <td><b></b></td>
+                  <td><b>Pendiente</b></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-success">Preparado</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Carrito de compras -->
+      <!-- /Modal -->
+
+
+
+
+
+    </div>
+    <!-- /Ver pedido -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
