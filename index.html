@@ -156,7 +156,7 @@
                     <div class="container">
                       <div class="row">
                         <div class="col text-center">
-                          <button type="button" class="btn btn-hamburger"> Agregar</button>
+                          <button type="button" class="btn btn-hamburger" @click="agg(item)"> Agregar</button>
       
                         </div>
                       </div>
@@ -455,30 +455,12 @@
                     <th scope="col">Precio</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody v-for="item in dataTable">
                   <tr>
-                    <th><img src="/assets/food/hamburgerMegaStacker.png" alt="" style="height: 30px; width: 30px;"></th>
-                    <th scope="row">1</th>
-                    <td>H megastacker</td>
-                    <td>$35.000</td>
-                  </tr>
-                  <tr>
-                    <th><img src="/assets/food/HotDogAmericano.jpg" alt="" style="height: 30px; width: 30px;"></th>
-                    <th scope="row">2</th>
-                    <td>HD Americano</td>
-                    <td>$36.000</td>
-                  </tr>
-                  <tr>
-                    <th><img src="/assets/food/HotDogArgentino.jpg" alt="" style="height: 30px; width: 30px;"></th>
-                    <th scope="row">2</th>
-                    <td>HD Argentino</td>
-                    <td>$38.000</td>
-                  </tr>
-                  <tr>
-                    <th></th>
-                    <th scope="row">5</th>
-                    <td><b>Total</b></td>
-                    <td><b>$109.000</b></td>
+                    <th><img :src="item.img" :alt="item.name" style="height: 30px; width: 30px;"></th>
+                    <th scope="row">{{item.cant}}</th>
+                    <td>{{item.name}}</td>
+                    <td>${{item.price}}</td>
                   </tr>
                 </tbody>
               </table>

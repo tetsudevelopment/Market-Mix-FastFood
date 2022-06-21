@@ -89,24 +89,55 @@ let app = new Vue({
         ],
       },
     ],
-    dataCarrito:[],
+    dataTable: [
+      {
+        idModal: "#h01",
+        id: "h01",
+        name: "Hamburguesa Mega Stacker",
+        img: "assets/food/hamburgerMegaStacker.png",
+        description:
+          "Cuenta con triple carne de res 113 gr C/U a la parrilla, queso, tocineta crujiente y deliciosa salsa stacker sobre un pan con ajonjolí",
+        price: 35000,
+        cant: 0,
+      },
+      {
+        idModal: "#hd01",
+        id: "hd01",
+        name: "Hot Dog Americano",
+        img: "assets/food/HotDogAmericano.jpg",
+        description:
+          "Bacon ahumado, doble queso, pepinillos, cebolla crunch, salsa de tomate y mostaza. Salchicha suiza, tocineta",
+        price: 18000,
+        cant: 0,
+      },
+    ],
     userId: "1234",
     userPin: "1234",
     viewMain: 0,
     viewEmployee: 0,
   },
   methods: {
-    cant(item,value) {
+    cant(item, value) {
       if (value == 0) {
         if (item.cant > 0) {
           item.cant--;
         } else {
-          console.log('Seleccione uno ole');
-          return item.cant = 0;
+          console.log("Seleccione uno ole");
+          return (item.cant = 0);
         }
       } else {
         item.cant++;
       }
+    },
+    agg(item) {
+      // if (item.cant == 0) {
+      //   alert('Seleccioné la cantidad que desea comprar')
+      // } else {
+      //   let comida=this.dataTable.forEach(element => {
+      //     console.log(element);
+      //   });
+      //   this.dataTable.push(item)
+      // }
     },
     getOut() {
       this.viewMain = 0;
