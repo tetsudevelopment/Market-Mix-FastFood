@@ -32,8 +32,8 @@
                 <div class="row h-100">
                   <div class="col">
                     <a class="navbar-brand" href="#">
-                      <img src="assets/images/LogoPrimary.png" alt="Logo hamburguesa" class="btn">
                       <small>Comidas rápidas la 14</small>
+                      <img src="assets/images/LogoPrimary.png" alt="Logo hamburguesa" class="btn">
                     </a>
                   </div>
                 </div>
@@ -64,8 +64,10 @@
               <div class="col col-sm-1 text-end">
                 <div class="row">
                   <div class="col   offset-lg-3 ">
-                    <img src="assets/images/logoSecundary.png" alt="Carrito" class="btn btn-logo" data-bs-toggle="modal" data-bs-target="#carrito">
-      
+                    <div class="btn btn-logo position-relative" data-bs-toggle="modal" data-bs-target="#carrito">
+                      <img src="assets/images/logoSecundary.png" alt="Carrito" class="btn btn-logo" >
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">4</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -123,7 +125,7 @@
           <div class="container" >
             <!-- Cards -->
             <div class="row justify-content-center" >
-              <div class="col-md-6 col-lg-3 col mb-4" v-for="(item,index) in dataFood[0].burger">
+              <div class="col-md-6 col-lg-3 col mb-4" v-for="item in dataFood[0].burger">
                 <div class="card col h-100">
                   <div class="container">
                     <div class="row">

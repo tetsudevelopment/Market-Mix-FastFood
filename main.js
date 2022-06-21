@@ -12,7 +12,7 @@ let app = new Vue({
             description:
               "Cuenta con triple carne de res 113 gr C/U a la parrilla, queso, tocineta crujiente y deliciosa salsa stacker sobre un pan con ajonjolí",
             price: 35000,
-            cant: 0,
+            cant: 1,
             total: 0,
           },
           {
@@ -23,7 +23,7 @@ let app = new Vue({
             description:
               "Nuestra WHOPPER® cuenta con carne 113 gr de res a la parrilla, preparada con jugosos tomates, lechuga recién cortada, pepinillos, cebollas en rodajas y cremosa mayonesa sobre un pan con ajonjolí tostado perfectamente y ketchup ¡Pídela en COMBO con papas a la francesa y tu bebida favorita!",
             price: 22000,
-            cant: 0,
+            cant: 1,
             total: 0,
           },
           {
@@ -34,7 +34,7 @@ let app = new Vue({
             description:
               "Cuenta con doble carne de res 48 gr c/u a la parrilla, jugosos tomates, lechuga recién cortada, y cremosa mayonesa sobre un pan sandwich con ajonjolí.",
             price: 22000,
-            cant: 0,
+            cant: 1,
             total: 0,
           },
           {
@@ -45,7 +45,7 @@ let app = new Vue({
             description:
               "Cuenta con una carne de res a la parrilla de 198 gr, queso, lechuga, tomates, cebolla crujiente, salsa BBQ y cremosa mayonesa sobre un pan esponjoso de maíz.",
             price: 32000,
-            cant: 0,
+            cant: 1,
             total: 0,
           },
         ],
@@ -58,7 +58,7 @@ let app = new Vue({
             description:
               "Bacon ahumado, doble queso, pepinillos, cebolla crunch, salsa de tomate y mostaza. Salchicha suiza, tocineta",
             price: 18000,
-            cant: 0,
+            cant: 1,
             total: 0,
           },
           {
@@ -69,7 +69,7 @@ let app = new Vue({
             description:
               "Queso cervecero, pimentones asados, chimichurri y chorizo artesanal.",
             price: 19000,
-            cant: 0,
+            cant: 1,
             total: 0,
           },
           {
@@ -80,7 +80,7 @@ let app = new Vue({
             description:
               "Queso roquefort, tomates rostizados, rugula, hongos, salchicha alemana.",
             price: 18000,
-            cant: 0,
+            cant: 1,
             total: 0,
           },
           {
@@ -91,26 +91,42 @@ let app = new Vue({
             description:
               "Demiglace de Buchanan’s , cebollas caramelizadas con cerveza a8tesanal, queso cheddar y tocineta ahumada, Salchicha suiza,tocineta.",
             price: 19000,
-            cant: 0,
+            cant: 1,
             total: 0,
           },
         ],
       },
     ],
-    dataTable: [],
-    userId: "1234",
-    userPin: "1234",
+    dataUser: [
+      {
+        name: "Usuario 1",
+        userId: "1234",
+        userPin: "1234",
+      },
+      {
+        name: "Usuario 2",
+        userId: "12345",
+        userPin: "12345",
+      },
+    ],
+    dataTable: [], //tabla del carrito
+    userId:"",
+    userPin:"",
     viewMain: 0,
     viewEmployee: 0,
     total: 0,
+    cantidad: 0,
   },
   computed: {
     totall() {
       let total = this.total;
-      this.dataTable.forEach((element)=>{
-        return total += element.total
-      })
-      return total
+      this.dataTable.forEach((element) => {
+        return (total += element.total);
+      });
+      return total;
+    },
+    cant() {
+      return (this.cantidad = this.dataTable.length);
     },
   },
   methods: {
@@ -147,9 +163,6 @@ let app = new Vue({
             }
           });
         }
-        console.log(index);
-
-        //
       }
     },
     getOut() {
