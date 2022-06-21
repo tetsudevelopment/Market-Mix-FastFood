@@ -123,7 +123,7 @@
           <div class="container" >
             <!-- Cards -->
             <div class="row justify-content-center" >
-              <div class="col-md-6 col-lg-3 col mb-4" v-for="item in burger">
+              <div class="col-md-6 col-lg-3 col mb-4" v-for="(item,index) in dataFood[0].burger">
                 <div class="card col h-100">
                   <div class="container">
                     <div class="row">
@@ -143,12 +143,11 @@
                         <p class="text-center fw-bold">Cantidad</p>
                       </div>
                       <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
+                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"alt="" @click="cant(item,0)"></button>
+                        <input type="number" class="form-control rounded text-center" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
                         <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
+                            alt="" @click="cant(item,1)"></button>
                       </div>
                     </div>
                   </div>
@@ -185,7 +184,7 @@
           <div class="container">
             <!-- Cards -->
             <div class="row justify-content-center">
-              <div class="col-md-6 col-lg-3 col mb-4" v-for="item in hotDog">
+              <div class="col-md-6 col-lg-3 col mb-4" v-for="(item,index) in dataFood[0].hotDog">
                 <div class="card col h-100">
                   <div class="container">
                     <div class="row">
@@ -206,11 +205,11 @@
                       </div>
                       <div class="input-group mb-3">
                         <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
+                            alt=""  @click="cant(item,0)"></button>
+                        <input type="number" class="form-control rounded text-center" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
                         <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
+                            alt=""  @click="cant(item,1)"></button>
                       </div>
                     </div>
                   </div>
@@ -262,7 +261,7 @@
       <!-- Modal -->
       <!-- Hamburguesas -->
       <section id="hamburguesa-modal">
-        <div class="container" v-for="item in burger">
+        <div class="container" v-for="item in dataFood[0].burger">
           <!-- Modal hamburger Mega Stacker -->
           <div class="modal fade" :id="item.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -299,11 +298,11 @@
                             </div>
                             <div class="input-group mb-3">
                               <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                                  alt=""></button>
-                              <input type="number" class="form-control rounded" placeholder=""
+                                  alt=""  @click="cant(item,0)"></button>
+                              <input type="number" class="form-control rounded text-center" placeholder=""
                                 aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
                               <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                  alt=""></button>
+                                  alt=""  @click="cant(item,1)"></button>
                             </div>
                           </div>
                         </div>
@@ -334,7 +333,7 @@
       
       <!-- Perros calientes -->
       <section id="hot-dog-modal">
-        <div class="container" v-for="item in hotDog">
+        <div class="container" v-for="item in dataFood[0].hotDog">
           <!-- Hot Dog Americano -->
           <div class="modal fade" :id="item.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -371,11 +370,11 @@
                             </div>
                             <div class="input-group mb-3">
                               <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                                  alt=""></button>
-                              <input type="number" class="form-control rounded" placeholder=""
+                                  alt=""  @click="cant(item,0)"></button>
+                              <input type="number" class="form-control rounded text-center" placeholder=""
                                 aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
                               <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                  alt=""></button>
+                                  alt=""  @click="cant(item,1)"></button>
                             </div>
                           </div>
                         </div>
@@ -440,7 +439,7 @@
 
       <!-- Carrito de compras -->
       <div class="modal fade" id="carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
@@ -458,7 +457,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th><img src="/assets/food/hamburgerMegaStacker.png" alt=""></th>
+                    <th><img src="/assets/food/hamburgerMegaStacker.png" alt="" style="height: 30px; width: 30px;"></th>
                     <th scope="row">1</th>
                     <td>H megastacker</td>
                     <td>$35.000</td>
