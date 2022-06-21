@@ -218,7 +218,7 @@
                     <div class="container">
                       <div class="row">
                         <div class="col text-center">
-                          <button type="button" class="btn btn-hotDog"> Agregar</button>
+                          <button type="button" class="btn btn-hotDog" @click="agg(item)"> Agregar</button>
       
                         </div>
                       </div>
@@ -311,7 +311,7 @@
                         <div class="container">
                           <div class="row">
                             <div class="col text-center mt-3">
-                              <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                              <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)"> Agregar</button>
                             </div>
                           </div>
                         </div>
@@ -383,7 +383,7 @@
                         <div class="container">
                           <div class="row">
                             <div class="col text-center mt-3">
-                              <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                              <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)"> Agregar</button>
                             </div>
                           </div>
                         </div>
@@ -452,7 +452,8 @@
                     <th scope="col">Producto</th>
                     <th scope="col">Cant</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
+                    <th scope="col">Precio U</th>
+                    <th scope="col">Precio Total</th>
                   </tr>
                 </thead>
                 <tbody v-for="item in dataTable">
@@ -461,8 +462,16 @@
                     <th scope="row">{{item.cant}}</th>
                     <td>{{item.name}}</td>
                     <td>${{item.price}}</td>
+                    <td>${{item.total=item.cant*item.price}}</td>
                   </tr>
                 </tbody>
+                  <tr>
+                    <th class="text-center">Total</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${{totall}}</td>
+                  </tr>
               </table>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
