@@ -32,8 +32,8 @@
                 <div class="row h-100">
                   <div class="col">
                     <a class="navbar-brand" href="#">
-                      <img src="assets/images/LogoPrimary.png" alt="Logo hamburguesa" class="btn">
                       <small>Comidas rápidas la 14</small>
+                      <img src="assets/images/LogoPrimary.png" alt="Logo hamburguesa" class="btn">
                     </a>
                   </div>
                 </div>
@@ -64,8 +64,10 @@
               <div class="col col-sm-1 text-end">
                 <div class="row">
                   <div class="col   offset-lg-3 ">
-                    <img src="assets/images/logoSecundary.png" alt="Carrito" class="btn btn-logo" data-bs-toggle="modal" data-bs-target="#carrito">
-      
+                    <div class="btn btn-logo position-relative" data-bs-toggle="modal" data-bs-target="#carrito">
+                      <img src="assets/images/logoSecundary.png" alt="Carrito" class="btn btn-logo" >
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">4</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -120,21 +122,21 @@
               <small class="h5 fw-bold offset-lg-2">Hamburguesa</small>
             </div>
           </div>
-          <div class="container">
+          <div class="container" >
             <!-- Cards -->
-            <div class="row justify-content-center">
-              <div class="col-md-6 col-lg-3 col mb-4">
+            <div class="row justify-content-center" >
+              <div class="col-md-6 col-lg-3 col mb-4" v-for="item in dataFood[0].burger">
                 <div class="card col h-100">
                   <div class="container">
                     <div class="row">
-                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-h-1">
-                        <img src="assets/food/hamburgerMegaStacker.png" class="card-img-top card-img1 mb-2 mt-3"
-                          alt="Hamburguesa Mega Stacker">
+                      <div class="col text-center btn" data-bs-toggle="modal" :data-bs-target="item.idModal">
+                        <img :src="item.img" class="card-img-top card-img1 mb-2 mt-3"
+                          :alt="item.name">
                       </div>
                     </div>
                   </div>
                   <div class="card-body text-center">
-                    <h5 class="card-title ">Hamburguesa Mega Stacker</h5>
+                    <h5 class="card-title ">{{item.name}}</h5>
                   </div>
                   <!-- Ingresar cantidad -->
                   <div class="container-fluid mb-2">
@@ -143,12 +145,11 @@
                         <p class="text-center fw-bold">Cantidad</p>
                       </div>
                       <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"alt="" @click="cant(item,0)"></button>
+                        <input type="number" class="form-control rounded text-center" placeholder=""
+                          aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
                         <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
+                            alt="" @click="cant(item,1)"></button>
                       </div>
                     </div>
                   </div>
@@ -157,132 +158,7 @@
                     <div class="container">
                       <div class="row">
                         <div class="col text-center">
-                          <button type="button" class="btn btn-hamburger"> Agregar</button>
-      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3 col mb-4">
-                <div class="card col h-100">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col text-center btn " data-bs-toggle="modal" data-bs-target="#exampleModal-h-2">
-                        <img src="assets/food/hamburgerWhopper.png" class="card-img-top card-img1 mb-2 mt-3"
-                          alt="Hamburguesa Whopper">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Hamburguesa Whopper</h5>
-                  </div>
-                  <!-- Ingresar cantidad -->
-                  <div class="container-fluid mb-2">
-                    <div class="row">
-                      <div class="col text-center">
-                        <p class="text-center fw-bold">Cantidad</p>
-                      </div>
-                      <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /Ingresar Cantidad -->
-                  <div class="card-footer">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col text-center">
-                          <button type="button" class="btn btn-hamburger"> Agregar</button>
-      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3 col mb-4">
-                <div class="card col h-100">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-h-3">
-                        <img src="assets/food/hamburgerXlQuesoTocineta.png" class="card-img-top card-img1 mb-2 mt-3"
-                          alt="Hamburguesa Xl Queso Tocineta">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Hamburguesa Xl Queso Tocineta</h5>
-                  </div>
-                  <!-- Ingresar cantidad -->
-                  <div class="container-fluid mb-2">
-                    <div class="row">
-                      <div class="col text-center">
-                        <p class="text-center fw-bold">Cantidad</p>
-                      </div>
-                      <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /Ingresar Cantidad -->
-                  <div class="card-footer">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col text-center">
-                          <button type="button" class="btn btn-hamburger"> Agregar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3 col mb-4">
-                <div class="card col h-100">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-h-4">
-                        <img src="assets/food/hamburgerXTBQQ.png" class="card-img-top card-img1 mb-2 mt-3"
-                          alt="Hamburguesa XT BQQ">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Hamburguesa XT BQQ</h5>
-                  </div>
-                  <!-- Ingresar cantidad -->
-                  <div class="container-fluid mb-2">
-                    <div class="row">
-                      <div class="col text-center">
-                        <p class="text-center fw-bold">Cantidad</p>
-                      </div>
-                      <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /Ingresar Cantidad -->
-                  <div class="card-footer">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col text-center">
-                          <button type="button" class="btn btn-hamburger"> Agregar</button>
+                          <button type="button" class="btn btn-hamburger" @click="agg(item)"> Agregar</button>
       
                         </div>
                       </div>
@@ -310,18 +186,18 @@
           <div class="container">
             <!-- Cards -->
             <div class="row justify-content-center">
-              <div class="col-md-6 col-lg-3 col mb-4">
+              <div class="col-md-6 col-lg-3 col mb-4" v-for="(item,index) in dataFood[0].hotDog">
                 <div class="card col h-100">
                   <div class="container">
                     <div class="row">
-                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-p-1">
-                        <img src="assets/food/HotDogAmericano.jpg" class="card-img-top card-img1 mb-2 mt-3"
-                          alt="Hot Dog Americano">
+                      <div class="col text-center btn" data-bs-toggle="modal" :data-bs-target="item.idModal">
+                        <img :src="item.img" class="card-img-top card-img1 mb-2 mt-3"
+                          :alt="item.name">
                       </div>
                     </div>
                   </div>
                   <div class="card-body text-center">
-                    <h5 class="card-title ">Hot Dog Americano</h5>
+                    <h5 class="card-title ">{{item.name}}</h5>
                   </div>
                   <!-- Ingresar cantidad -->
                   <div class="container-fluid mb-2">
@@ -331,11 +207,11 @@
                       </div>
                       <div class="input-group mb-3">
                         <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            alt=""  @click="cant(item,0)"></button>
+                        <input type="number" class="form-control rounded text-center" placeholder=""
+                          aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
                         <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
+                            alt=""  @click="cant(item,1)"></button>
                       </div>
                     </div>
                   </div>
@@ -344,132 +220,7 @@
                     <div class="container">
                       <div class="row">
                         <div class="col text-center">
-                          <button type="button" class="btn btn-hotDog"> Agregar</button>
-      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3 col mb-4">
-                <div class="card col h-100">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-p-2">
-                        <img src="assets/food/HotDogArgentino.jpg" class="card-img-top card-img1 mb-2 mt-3"
-                          alt="Hot Dog Argentino">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Hot Dog Argentino</h5>
-                  </div>
-                  <!-- Ingresar cantidad -->
-                  <div class="container-fluid mb-2">
-                    <div class="row">
-                      <div class="col text-center">
-                        <p class="text-center fw-bold">Cantidad</p>
-                      </div>
-                      <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /Ingresar Cantidad -->
-                  <div class="card-footer">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col text-center">
-                          <button type="button" class="btn btn-hotDog"> Agregar</button>
-      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3 col mb-4">
-                <div class="card col h-100">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-p-3">
-                        <img src="assets/food/HotDogAzul.jpg" class="card-img-top card-img1 mb-2 mt-3" alt="Hot Dog Azul">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Hot Dog Azul</h5>
-                  </div>
-                  <!-- Ingresar cantidad -->
-                  <div class="container-fluid mb-2">
-                    <div class="row">
-                      <div class="col text-center">
-                        <p class="text-center fw-bold">Cantidad</p>
-                      </div>
-                      <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /Ingresar Cantidad -->
-                  <div class="card-footer">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col text-center">
-                          <button type="button" class="btn btn-hotDog"> Agregar</button>
-      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3 col mb-4">
-                <div class="card col h-100">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col text-center btn" data-bs-toggle="modal" data-bs-target="#exampleModal-p-4">
-                        <img src="assets/food/HotDogBorracho.jpg" class="card-img-top card-img1 mb-2 mt-3"
-                          alt="Hot Dog Borracho">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Hot Dog Borracho</h5>
-                  </div>
-                  <!-- Ingresar cantidad -->
-                  <div class="container-fluid mb-2">
-                    <div class="row">
-                      <div class="col text-center">
-                        <p class="text-center fw-bold">Cantidad</p>
-                      </div>
-                      <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""></button>
-                        <input type="number" class="form-control rounded" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""></button>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /Ingresar Cantidad -->
-                  <div class="card-footer">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col text-center">
-                          <button type="button" class="btn btn-hotDog"> Agregar</button>
+                          <button type="button" class="btn btn-hotDog" @click="agg(item)"> Agregar</button>
       
                         </div>
                       </div>
@@ -512,530 +263,146 @@
       <!-- Modal -->
       <!-- Hamburguesas -->
       <section id="hamburguesa-modal">
-        <!-- Modal hamburger Mega Stacker -->
-        <div class="modal fade" id="exampleModal-h-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content" id="modal-content-h">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hamburguesa Mega Stacker</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center" id=" modal-body-h">
-                <div class="modal-body-image">
-                  <img src="assets/food/hamburgerMegaStacker.png" alt="">
+        <div class="container" v-for="item in dataFood[0].burger">
+          <!-- Modal hamburger Mega Stacker -->
+          <div class="modal fade" :id="item.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" id="modal-content-h">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{item.name}}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <h5 id="ingredients">Ingredientes:</h5>
-                    </div>
+                <div class="modal-body text-center" id=" modal-body-h">
+                  <div class="modal-body-image">
+                    <img :src="item.img" :alt="item.name">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="container">
                     <div class="row">
                       <div class="col">
-                        <p>Cuenta con triple carne de res 113 gr C/U a la parrilla, queso, tocineta crujiente y deliciosa
-                          salsa stacker sobre un pan con ajonjolí.</p>
+                        <h5 id="ingredients">Ingredientes:</h5>
                       </div>
                       <div class="row">
                         <div class="col">
-                          <h4>$35.000</h4>
+                          <p>{{item.description}}</p>
                         </div>
-                      </div>
-                      <!-- Ingresar cantidad -->
-                      <div class="container-fluid mb-2">
                         <div class="row">
-                          <div class="col text-center">
-                            <p class="text-center fw-bold">Cantidad</p>
-                          </div>
-                          <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
-                                src="assets/images/menos.png" alt=""></button>
-                            <input type="number" class="form-control rounded" placeholder=""
-                              aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                alt=""></button>
+                          <div class="col">
+                            <h4>${{item.price}}</h4>
                           </div>
                         </div>
-                      </div>
-                      <!-- /Ingresar cantidad -->
-                      <!-- Botón Agregar -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                        <!-- Ingresar cantidad -->
+                        <div class="container-fluid mb-2">
+                          <div class="row">
+                            <div class="col text-center">
+                              <p class="text-center fw-bold">Cantidad</p>
+                            </div>
+                            <div class="input-group mb-3">
+                              <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
+                                  alt=""  @click="cant(item,0)"></button>
+                              <input type="number" class="form-control rounded text-center" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
+                              <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
+                                  alt=""  @click="cant(item,1)"></button>
+                            </div>
                           </div>
                         </div>
+                        <!-- /Ingresar cantidad -->
+                        <!-- Botón Agregar -->
+                        <div class="container">
+                          <div class="row">
+                            <div class="col text-center mt-3">
+                              <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)"> Agregar</button>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /Botón Agregar -->
                       </div>
-                      <!-- /Botón Agregar -->
                     </div>
                   </div>
+          
                 </div>
-      
               </div>
             </div>
           </div>
+          <!-- /Hamburguesa Mega Stacker -->
         </div>
-        <!-- /Hamburguesa Mega Stacker -->
+        
       
-        <!-- Hamburguesa Whopper -->
-        <div class="modal fade" id="exampleModal-h-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content" id="modal-content-h">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hamburguesa Whopper</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <div class="modal-body-image">
-                  <img src="assets/food/hamburgerWhopper.png" alt="">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <h5 id="ingredients">Ingredientes:</h5>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <p>Nuestra WHOPPER® cuenta con carne 113 gr de res a la parrilla, preparada con jugosos tomates,
-                          lechuga recién cortada, pepinillos, cebollas en rodajas y cremosa mayonesa sobre un pan con
-                          ajonjolí
-                          tostado perfectamente y ketchup ¡Pídela en COMBO con papas a la francesa y tu bebida favorita!</p>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <h4>$22.000</h4>
-                        </div>
-                      </div>
-                      <!-- Ingresar cantidad -->
-                      <div class="container-fluid mb-2">
-                        <div class="row">
-                          <div class="col text-center">
-                            <p class="text-center fw-bold">Cantidad</p>
-                          </div>
-                          <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
-                                src="assets/images/menos.png" alt=""></button>
-                            <input type="number" class="form-control rounded" placeholder=""
-                              aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                alt=""></button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Ingresar cantidad -->
-                      <!-- Botón Agregar -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Botón Agregar -->
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Hamburguesa Whopper -->
-      
-        <!-- Hamburguesa Xl Queso Tocineta -->
-        <div class="modal fade" id="exampleModal-h-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content" id="modal-content-h">
-              <div class="modal-header ">
-                <h5 class="modal-title" id="exampleModalLabel">Hamburguesa Xl Queso Tocineta</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <div class="modal-body-image">
-                  <img src="assets/food/hamburgerXlQuesoTocineta.png" alt="">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <h5 id="ingredients">Ingredientes:</h5>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <p>Cuenta con doble carne de res 48 gr c/u a la parrilla, jugosos tomates, lechuga recién cortada, y
-                          cremosa mayonesa sobre un pan sandwich con ajonjolí.</p>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <h4>$22.000</h4>
-                        </div>
-                      </div>
-                      <!-- Ingresar cantidad -->
-                      <div class="container-fluid mb-2">
-                        <div class="row">
-                          <div class="col text-center">
-                            <p class="text-center fw-bold">Cantidad</p>
-                          </div>
-                          <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
-                                src="assets/images/menos.png" alt=""></button>
-                            <input type="number" class="form-control rounded" placeholder=""
-                              aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                alt=""></button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Ingresar cantidad -->
-                      <!-- Botón Agregar -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Botón Agregar -->
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Hamburguesa Xl Queso Tocineta -->
-      
-        <!-- Hamburguesa XT BQQ -->
-        <div class="modal fade" id="exampleModal-h-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content" id="modal-content-h">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hamburguesa XT BBQ</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <div class="modal-body-image">
-                  <img src="assets/food/hamburgerXTBQQ.png" alt="">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <h5 id="ingredients">Ingredientes:</h5>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <p>Cuenta con una carne de res a la parrilla de 198 gr, queso, lechuga, tomates, cebolla crujiente,
-                          salsa BBQ y cremosa mayonesa sobre un pan esponjoso de maíz.</p>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <h4>$32.000</h4>
-                        </div>
-                      </div>
-                      <!-- Ingresar cantidad -->
-                      <div class="container-fluid mb-2">
-                        <div class="row">
-                          <div class="col text-center">
-                            <p class="text-center fw-bold">Cantidad</p>
-                          </div>
-                          <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
-                                src="assets/images/menos.png" alt=""></button>
-                            <input type="number" class="form-control rounded" placeholder=""
-                              aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                alt=""></button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Ingresar cantidad -->
-                      <!-- Botón Agregar -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Botón Agregar -->
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Hamburguesa XT BQQ -->
       </section>
       <!-- /Hamburguesas -->
       
       <!-- Perros calientes -->
       <section id="hot-dog-modal">
-        <!-- Hot Dog Americano -->
-        <div class="modal fade" id="exampleModal-p-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content" id="modal-content-p">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hot Dog Americano</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center" id="modal-body-p">
-                <div class="modal-body-image">
-                  <img src="assets/food/HotDogAmericano.jpg" alt="">
+        <div class="container" v-for="item in dataFood[0].hotDog">
+          <!-- Hot Dog Americano -->
+          <div class="modal fade" :id="item.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" id="modal-content-p">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{item.name}}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <h5 id="ingredients">Ingredientes:</h5>
-                    </div>
+                <div class="modal-body text-center" id="modal-body-p">
+                  <div class="modal-body-image">
+                    <img :src="item.img" :alt="item.name">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="container">
                     <div class="row">
                       <div class="col">
-                        <p>Bacon ahumado, doble queso, pepinillos, cebolla crunch, salsa de tomate y mostaza. Salchicha
-                          suiza,
-                          tocineta</p>
+                        <h5 id="ingredients">Ingredientes:</h5>
                       </div>
                       <div class="row">
                         <div class="col">
-                          <h4>$18.000</h4>
+                          <p>{{item.description}}</p>
                         </div>
-                      </div>
-                      <!-- Ingresar cantidad -->
-                      <div class="container-fluid mb-2">
                         <div class="row">
-                          <div class="col text-center">
-                            <p class="text-center fw-bold">Cantidad</p>
-                          </div>
-                          <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
-                                src="assets/images/menos.png" alt=""></button>
-                            <input type="number" class="form-control rounded" placeholder=""
-                              aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                alt=""></button>
+                          <div class="col">
+                            <h4>${{item.price}}</h4>
                           </div>
                         </div>
-                      </div>
-                      <!-- /Ingresar cantidad -->
-                      <!-- Botón Agregar -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
+                        <!-- Ingresar cantidad -->
+                        <div class="container-fluid mb-2">
+                          <div class="row">
+                            <div class="col text-center">
+                              <p class="text-center fw-bold">Cantidad</p>
+                            </div>
+                            <div class="input-group mb-3">
+                              <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
+                                  alt=""  @click="cant(item,0)"></button>
+                              <input type="number" class="form-control rounded text-center" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
+                              <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
+                                  alt=""  @click="cant(item,1)"></button>
+                            </div>
                           </div>
                         </div>
+                        <!-- /Ingresar cantidad -->
+                        <!-- Botón Agregar -->
+                        <div class="container">
+                          <div class="row">
+                            <div class="col text-center mt-3">
+                              <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)"> Agregar</button>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /Botón Agregar -->
                       </div>
-                      <!-- /Botón Agregar -->
                     </div>
                   </div>
+          
                 </div>
-      
               </div>
             </div>
           </div>
+          <!-- /Hot Dog Americano -->
+
         </div>
-        <!-- /Hot Dog Americano -->
+        
       
-        <!-- Hot Dog Argentino -->
-        <div class="modal fade" id="exampleModal-p-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content" id="modal-content-p">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hot Dog Argentino</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <div class="modal-body-image">
-                  <img src="assets/food/HotDogArgentino.jpg" alt="">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <h5 id="ingredients">Ingredientes:</h5>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <p>Queso cervecero, pimentones asados, chimichurri y chorizo artesanal.</p>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <h4>$19.000</h4>
-                        </div>
-                      </div>
-                      <!-- Ingresar cantidad -->
-                      <div class="container-fluid mb-2">
-                        <div class="row">
-                          <div class="col text-center">
-                            <p class="text-center fw-bold">Cantidad</p>
-                          </div>
-                          <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
-                                src="assets/images/menos.png" alt=""></button>
-                            <input type="number" class="form-control rounded" placeholder=""
-                              aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                alt=""></button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Ingresar cantidad -->
-                      <!-- Botón Agregar -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Botón Agregar -->
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Hot Dog Argentino -->
-      
-        <!-- Hot Dog Azul -->
-        <div class="modal fade" id="exampleModal-p-3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content" id="modal-content-p">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hot Dog Azul</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <div class="modal-body-image">
-                  <img src="assets/food/HotDogAzul.jpg" alt="">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <h5 id="ingredients">Ingredientes:</h5>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <p>Queso roquefort, tomates rostizados, rugula, hongos, salchicha alemana.</p>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <h4>$18.000</h4>
-                        </div>
-                      </div>
-                      <!-- Ingresar cantidad -->
-                      <div class="container-fluid mb-2">
-                        <div class="row">
-                          <div class="col text-center">
-                            <p class="text-center fw-bold">Cantidad</p>
-                          </div>
-                          <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
-                                src="assets/images/menos.png" alt=""></button>
-                            <input type="number" class="form-control rounded" placeholder=""
-                              aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                alt=""></button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Ingresar cantidad -->
-                      <!-- Botón Agregar -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Botón Agregar -->
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Hot Dog Azul -->
-      
-        <!-- Hot Dog Borracho -->
-        <div class="modal fade" id="exampleModal-p-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content" id="modal-content-p">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Hot Dog Borracho</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <div class="modal-body-image">
-                  <img src="assets/food/HotDogBorracho.jpg" alt="">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <h5 id="ingredients">Ingredientes:</h5>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <p>Demiglace de Buchanan’s , cebollas caramelizadas con cerveza a8tesanal, queso cheddar y tocineta
-                          ahumada, Salchicha suiza,tocineta.</p>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <h4>$19.000</h4>
-                        </div>
-                      </div>
-                      <!-- Ingresar cantidad -->
-                      <div class="container-fluid mb-2">
-                        <div class="row">
-                          <div class="col text-center">
-                            <p class="text-center fw-bold">Cantidad</p>
-                          </div>
-                          <div class="input-group mb-3">
-                            <button class="btn btn-outline " type="button" id="button-image"><img
-                                src="assets/images/menos.png" alt=""></button>
-                            <input type="number" class="form-control rounded" placeholder=""
-                              aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                alt=""></button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Ingresar cantidad -->
-                      <!-- Botón Agregar -->
-                      <div class="container">
-                        <div class="row">
-                          <div class="col text-center mt-3">
-                            <button type="button" class="btn btn-outline-light btn-lg"> Agregar</button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- /Botón Agregar -->
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /Hot Dog Borracho -->
       </section>
       <!-- /Perros calientes -->
       
@@ -1071,10 +438,10 @@
         </div>
       </div>
       <!--/Login  -->
-      <!-- Carrito Compra -->
+
       <!-- Carrito de compras -->
       <div class="modal fade" id="carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
@@ -1087,35 +454,33 @@
                     <th scope="col">Producto</th>
                     <th scope="col">Cant</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
+                    <th scope="col">Precio U</th>
+                    <th scope="col">Precio Total</th>
+                    <th scope="col">Opciones</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th><img src="/assets/food/hamburgerMegaStacker.png" alt="" style="height: 30px; width: 30px;"></th>
-                    <th scope="row">1</th>
-                    <td>H megastacker</td>
-                    <td>$35.000</td>
+                <tbody v-if="dataTable.length">
+                  <tr v-for="(item,index) in dataTable" :key="item.id">
+                    <th><img :src="item.img" :alt="item.name" style="height: 30px; width: 30px;"></th>
+                    <th scope="row">{{item.cant}}</th>
+                    <td>{{item.name}}</td>
+                    <td>${{item.price}}</td>
+                    <td>${{item.total=item.cant*item.price}}</td>
+                    <td class="border"><button class="btn btn-danger" @click="deleteProduct(index)" type="button">Eliminar</button></td>
                   </tr>
                   <tr>
-                    <th><img src="/assets/food/HotDogAmericano.jpg" alt="" style="height: 30px; width: 30px;"></th>
-                    <th scope="row">2</th>
-                    <td>HD Americano</td>
-                    <td>$36.000</td>
+                    <th class="text-center">Total</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${{totall}}</td>
                   </tr>
-                  <tr>
-                    <th><img src="/assets/food/HotDogArgentino.jpg" alt="" style="height: 30px; width: 30px;"></th>
-                    <th scope="row">2</th>
-                    <td>HD Argentino</td>
-                    <td>$38.000</td>
-                  </tr>
-                  <tr>
-                    <th></th>
-                    <th scope="row">5</th>
-                    <td><b>Total</b></td>
-                    <td><b>$109.000</b></td>
-                  </tr>
-                </tbody>
+                </tbody>                  
+                  <tbody v-else>
+                    <tr>
+                      <td><b>hay productos agregados al carrito</b></td>
+                    </tr>
+                  </tbody>
               </table>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -1309,7 +674,8 @@
             </div>
           </div>
           <!-- /Carrito de compras -->
-          <!-- /Modal -->    
+          <!-- /Modal -->
+        
         
         
         
@@ -1318,8 +684,6 @@
         <!-- /Ver pedido -->
         <!-- /Modal -->
     </div>
-
-
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
