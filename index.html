@@ -19,18 +19,18 @@
 
 <body data-bs-spy="scroll" data-bs-target="#navbar">
   <div id="app">
-    <div class="Container-fluid" v-if="viewMain===0" >
+    <div class="Container-fluid" v-if="viewMain===0">
       <!-- Header -->
       <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container justify-content-start">
-      
+
           <!-- Logo del header -->
           <!-- /Logo del header -->
           <div class="container">
             <div class="row">
               <div class="col-12 col-sm-9  col-lg-6  ">
                 <div class="row h-100">
-                  <div class="col">
+                  <div class="col text-center text-sm-start">
                     <a class="navbar-brand" href="#">
                       <small>Comidas rápidas la 14</small>
                       <img src="assets/images/LogoPrimary.png" alt="Logo hamburguesa" class="btn">
@@ -65,24 +65,26 @@
                 <div class="row">
                   <div class="col   offset-lg-3 ">
                     <div class="btn btn-logo position-relative" data-bs-toggle="modal" data-bs-target="#carrito">
-                      <img src="assets/images/logoSecundary.png" alt="Carrito" class="btn btn-logo" >
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">4</span>
+                      <span
+                        class="position-absolute top-50  translate-middle badge rounded-pill bg-danger me-5">{{cantidad}}</span>
+                      <img src="assets/images/logoSecundary.png" alt="Carrito" class="btn btn-logo me-0">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-      
-      
+
+
         </div>
       </nav>
       <!--/Header -->
-      
+
       <!-- Main -->
       <main id="main" class="mb-5">
         <!-- Carusel -->
-        <div id="carousel" class="carousel slide carousel-fade mt-5 mt-sm-0" data-bs-ride="carousel" data-bs-pause="false">
+        <div id="carousel" class="carousel slide carousel-fade mt-5 mt-sm-0" data-bs-ride="carousel"
+          data-bs-pause="false">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img src="assets/images/image1.jpg" class="d-block w-100" alt="Images carousel">
@@ -101,7 +103,8 @@
                     <h1 class="mt-5 mt-sm-0 ">Comidas rápidas la 14</h1>
                     <p class="d-none d-sm-block">Ofrecemos gran variedad en Hamburguesa y perros calientes, con una
                       exquisita
-                      salsa de la casa para chuparse los dedos, precios accesibles y un gran sabor, Comidas rápidas la 14
+                      salsa de la casa para chuparse los dedos, precios accesibles y un gran sabor, Comidas rápidas la
+                      14
                       donde no matamos tus problemas pero si tus antojos </p>
                   </div>
                 </div>
@@ -122,16 +125,15 @@
               <small class="h5 fw-bold offset-lg-2">Hamburguesa</small>
             </div>
           </div>
-          <div class="container" >
+          <div class="container">
             <!-- Cards -->
-            <div class="row justify-content-center" >
+            <div class="row justify-content-center">
               <div class="col-md-6 col-lg-3 col mb-4" v-for="item in dataFood[0].burger">
                 <div class="card col h-100">
                   <div class="container">
                     <div class="row">
                       <div class="col text-center btn" data-bs-toggle="modal" :data-bs-target="item.idModal">
-                        <img :src="item.img" class="card-img-top card-img1 mb-2 mt-3"
-                          :alt="item.name">
+                        <img :src="item.img" class="card-img-top card-img1 mb-2 mt-3" :alt="item.name">
                       </div>
                     </div>
                   </div>
@@ -145,11 +147,13 @@
                         <p class="text-center fw-bold">Cantidad</p>
                       </div>
                       <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"alt="" @click="cant(item,0)"></button>
+                        <button class="btn btn-outline " type="button" id="button-image"><img
+                            src="assets/images/menos.png" alt="" @click="cant(item,0)"></button>
                         <input type="number" class="form-control rounded text-center" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt="" @click="cant(item,1)"></button>
+                          aria-label="Example text with button addon" aria-describedby="button-addon1"
+                          v-model="item.cant">
+                        <button class="btn btn-outline " type="button" id="button-image"><img
+                            src="assets/images/mas.png" alt="" @click="cant(item,1)"></button>
                       </div>
                     </div>
                   </div>
@@ -159,22 +163,22 @@
                       <div class="row">
                         <div class="col text-center">
                           <button type="button" class="btn btn-hamburger" @click="agg(item)"> Agregar</button>
-      
+
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-      
+
             </div>
           </div>
           <!-- /Cards -->
         </div>
       </section>
       <!-- /Hamburguesa -->
-      
-      
+
+
       <!-- Hot Dogs-->
       <section id="hot-dogs" class="mt-4 mb-2">
         <div class="container-fluid">
@@ -191,8 +195,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col text-center btn" data-bs-toggle="modal" :data-bs-target="item.idModal">
-                        <img :src="item.img" class="card-img-top card-img1 mb-2 mt-3"
-                          :alt="item.name">
+                        <img :src="item.img" class="card-img-top card-img1 mb-2 mt-3" :alt="item.name">
                       </div>
                     </div>
                   </div>
@@ -206,12 +209,13 @@
                         <p class="text-center fw-bold">Cantidad</p>
                       </div>
                       <div class="input-group mb-3">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                            alt=""  @click="cant(item,0)"></button>
+                        <button class="btn btn-outline " type="button" id="button-image"><img
+                            src="assets/images/menos.png" alt="" @click="cant(item,0)"></button>
                         <input type="number" class="form-control rounded text-center" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
-                        <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                            alt=""  @click="cant(item,1)"></button>
+                          aria-label="Example text with button addon" aria-describedby="button-addon1"
+                          v-model="item.cant">
+                        <button class="btn btn-outline " type="button" id="button-image"><img
+                            src="assets/images/mas.png" alt="" @click="cant(item,1)"></button>
                       </div>
                     </div>
                   </div>
@@ -221,7 +225,7 @@
                       <div class="row">
                         <div class="col text-center">
                           <button type="button" class="btn btn-hotDog" @click="agg(item)"> Agregar</button>
-      
+
                         </div>
                       </div>
                     </div>
@@ -234,7 +238,7 @@
         </div>
       </section>
       <!-- /Hot Dogs-->
-      
+
       <!-- Footer -->
       <footer id="footer" class="pb-4 pt-4 bg-dark">
         <div class="container">
@@ -244,22 +248,22 @@
             </div>
             <div class="col-md-1 col-2  text-center ">
               <a href="#"><img src="assets/images/instagram.png" alt="" width="40px"></a>
-      
+
             </div>
             <div class="col-md-1 col-2 text-center ">
               <a href="https://www.facebook.com/"><img src="assets/images/facebook.png" alt="" width="40px"> </a>
-      
+
             </div>
             <div class="col text-center p-2">
               <a href="#" class="">Contáctanos: 60158897</a>
             </div>
-      
+
           </div>
         </div>
       </footer>
       <!--/Footer  -->
-      
-      
+
+
       <!-- Modal -->
       <!-- Hamburguesas -->
       <section id="hamburguesa-modal">
@@ -299,12 +303,13 @@
                               <p class="text-center fw-bold">Cantidad</p>
                             </div>
                             <div class="input-group mb-3">
-                              <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                                  alt=""  @click="cant(item,0)"></button>
+                              <button class="btn btn-outline " type="button" id="button-image"><img
+                                  src="assets/images/menos.png" alt="" @click="cant(item,0)"></button>
                               <input type="number" class="form-control rounded text-center" placeholder=""
-                                aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
-                              <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                  alt=""  @click="cant(item,1)"></button>
+                                aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                v-model="item.cant">
+                              <button class="btn btn-outline " type="button" id="button-image"><img
+                                  src="assets/images/mas.png" alt="" @click="cant(item,1)"></button>
                             </div>
                           </div>
                         </div>
@@ -313,7 +318,8 @@
                         <div class="container">
                           <div class="row">
                             <div class="col text-center mt-3">
-                              <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)"> Agregar</button>
+                              <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)">
+                                Agregar</button>
                             </div>
                           </div>
                         </div>
@@ -321,18 +327,18 @@
                       </div>
                     </div>
                   </div>
-          
+
                 </div>
               </div>
             </div>
           </div>
           <!-- /Hamburguesa Mega Stacker -->
         </div>
-        
-      
+
+
       </section>
       <!-- /Hamburguesas -->
-      
+
       <!-- Perros calientes -->
       <section id="hot-dog-modal">
         <div class="container" v-for="item in dataFood[0].hotDog">
@@ -371,12 +377,13 @@
                               <p class="text-center fw-bold">Cantidad</p>
                             </div>
                             <div class="input-group mb-3">
-                              <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/menos.png"
-                                  alt=""  @click="cant(item,0)"></button>
+                              <button class="btn btn-outline " type="button" id="button-image"><img
+                                  src="assets/images/menos.png" alt="" @click="cant(item,0)"></button>
                               <input type="number" class="form-control rounded text-center" placeholder=""
-                                aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="item.cant">
-                              <button class="btn btn-outline " type="button" id="button-image"><img src="assets/images/mas.png"
-                                  alt=""  @click="cant(item,1)"></button>
+                                aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                v-model="item.cant">
+                              <button class="btn btn-outline " type="button" id="button-image"><img
+                                  src="assets/images/mas.png" alt="" @click="cant(item,1)"></button>
                             </div>
                           </div>
                         </div>
@@ -385,7 +392,8 @@
                         <div class="container">
                           <div class="row">
                             <div class="col text-center mt-3">
-                              <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)"> Agregar</button>
+                              <button type="button" class="btn btn-outline-light btn-lg" @click="agg(item)">
+                                Agregar</button>
                             </div>
                           </div>
                         </div>
@@ -393,7 +401,7 @@
                       </div>
                     </div>
                   </div>
-          
+
                 </div>
               </div>
             </div>
@@ -401,11 +409,11 @@
           <!-- /Hot Dog Americano -->
 
         </div>
-        
-      
+
+
       </section>
       <!-- /Perros calientes -->
-      
+
       <!-- Login -->
       <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog ">
@@ -422,17 +430,20 @@
                 <img src="assets/images/userLogin.png" alt="">
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="userId">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                  v-model="userId">
                 <label for="floatingInput">Email address</label>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="userPin">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                  v-model="userPin">
                 <label for="floatingPassword">Password</label>
               </div>
             </div>
             <div class="modal-footer justify-content-center">
               <button type="button" class="btn btn-primary me-2" @click="login" data-bs-dismiss="modal">Log in</button>
-              <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal"
+                @click="getOut">Cancelar</button>
             </div>
           </div>
         </div>
@@ -456,17 +467,17 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Precio U</th>
                     <th scope="col">Precio Total</th>
-                    <th scope="col">Opciones</th>
                   </tr>
                 </thead>
-                <tbody v-if="dataTable.length">
-                  <tr v-for="(item,index) in dataTable" :key="item.id">
-                    <th><img :src="item.img" :alt="item.name" style="height: 30px; width: 30px;"></th>
+                <tbody v-if="dataTable.length>0">
+                  <tr v-for="(item, index) in dataTable">
+                    <th><img :src="item.img" :alt="item.name" style="height: 50px; width: 50px;"></th>
                     <th scope="row">{{item.cant}}</th>
                     <td>{{item.name}}</td>
                     <td>${{item.price}}</td>
                     <td>${{item.total=item.cant*item.price}}</td>
-                    <td class="border"><button class="btn btn-danger" @click="deleteProduct(index)" type="button">Eliminar</button></td>
+                    <td class="border"><button class="btn btn-danger" @click="deleteProduct(index)"
+                        type="button">Eliminar</button></td>
                   </tr>
                   <tr>
                     <th class="text-center">Total</th>
@@ -475,16 +486,20 @@
                     <td></td>
                     <td>${{totall}}</td>
                   </tr>
-                </tbody>                  
-                  <tbody v-else>
-                    <tr>
-                      <td><b>hay productos agregados al carrito</b></td>
-                    </tr>
-                  </tbody>
+                </tbody>
+                <tbody v-else>
+                  <td>hay productos agregados al carrito</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tbody>
               </table>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger">Comprar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                  @click="cancel">Cancelar</button>
+                <button type="button" class="btn btn-danger" @click="toBuy">Comprar</button>
               </div>
             </div>
           </div>
@@ -499,7 +514,7 @@
       <!-- Header -->
       <nav id="header" class="container-fluid navbar navbar-expand navbar-dark bg-dark fixed-top mb-5">
         <div class="container-fluid">
-      
+
           <!-- Logo del header -->
           <!-- /Logo del header -->
           <div class="container">
@@ -513,15 +528,16 @@
                       </a>
                     </div>
                     <div class=" container p-3 text-end">
-                      <img src="assets/images/exit.png" alt="" class="btn btn-primary" style="width: 50px;" @click="getOut">
+                      <img src="assets/images/exit.png" alt="" class="btn btn-primary" style="width: 50px;"
+                        @click="getOut">
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-      
-      
+
+
         </div>
       </nav>
       <!--/Header -->
@@ -578,20 +594,27 @@
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <th scope="row">Pendiente</th>
-                <td><button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                    data-bs-target="#ver-pedido">Ver</button>
-                  <button type="button" class="btn btn-success">Ok</button>
-                </td>
-              </tr>
+            <tbody v-for="item in dataEmployee">
+              <template v-if="item.status=='Preparando'">
+                <tr>
+                  <th scope="row">{{item.pedido}}</th>
+                  <th scope="row">{{item.status}}</th>
+                  <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" :data-bs-target="item.idModal">Ver</button>
+                    <button type="button" class="btn btn-success">Ok</button>
+                  </td>
+                </tr>
+              </template>
+              <template v-else>
+                <tr>
+                  <td colspan="3">NO existen pedidos</td>
+                </tr>
+              </template>
+            
             </tbody>
           </table>
         </div>
         <!-- /Tabla cocina -->
-        
+
         <!-- Tabla mesero -->
         <div class="m-5 text-center" id="mesero" v-if="viewEmployee===2">
           <h1>Entregas</h1>
@@ -620,69 +643,55 @@
       </section>
       <!-- /Tablas administrativos -->
 
-        <!-- Modal -->
-        <!-- Ver pedido -->
-        <div class="modal fade" id="ver-pedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><b>Pedido 1</b></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">Producto</th>
-                      <th scope="col">Cant</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Estado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th><img src="/assets/food/hamburgerMegaStacker.png" alt="" style="height: 30px; width: 30px;"></th>
-                      <th scope="row">1</th>
-                      <td>H megastacker</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th><img src="/assets/food/HotDogAmericano.jpg" alt="" style="height: 30px; width: 30px;"></th>
-                      <th scope="row">2</th>
-                      <td>HD Americano</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th><img src="/assets/food/HotDogArgentino.jpg" alt="" style="height: 30px; width: 30px;"></th>
-                      <th scope="row">2</th>
-                      <td>HD Argentino</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th></th>
-                      <th scope="row"></th>
-                      <td><b></b></td>
-                      <td><b>Pendiente</b></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-success">Preparado</button>
-                </div>
+      <!-- Modal -->
+      <!-- Ver pedido -->
+      <div class="modal fade" v-for="item in dataEmployee" :id="item.id" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><b>Pedido {{item.pedido}}</b></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cant</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <div v-for="item in dataEmployee">
+                      <tr v-for="prod in item.producto">
+                        <th><img :src="prod.img" alt="" style="height: 50px; width: 50px;"></th>
+                        <th scope="row" v-text="prod.cant"></th>
+                        <td v-text="prod.name"></td>
+                        <td v-text="item.status"></td>
+                      </tr>
+                  </div>
+
+                </tbody>
+              </table>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success">Preparado</button>
               </div>
             </div>
           </div>
-          <!-- /Carrito de compras -->
-          <!-- /Modal -->
-        
-        
-        
-        
-        
         </div>
-        <!-- /Ver pedido -->
+        <!-- /Carrito de compras -->
         <!-- /Modal -->
+
+
+
+
+
+      </div>
+      <!-- /Ver pedido -->
+      <!-- /Modal -->
     </div>
   </div>
 

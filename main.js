@@ -96,7 +96,7 @@ let app = new Vue({
           },
         ],
       },
-    ],
+    ], // Datos comida
     dataUser: [
       {
         name: "Usuario 1",
@@ -108,14 +108,17 @@ let app = new Vue({
         userId: "12345",
         userPin: "12345",
       },
-    ],
+    ], //Datos Usuario
     dataTable: [], //tabla del carrito
-    userId:"",
-    userPin:"",
+    dataEmployee: [],
+    userId: "1234",
+    userPin: "1234",
     viewMain: 0,
     viewEmployee: 0,
     total: 0,
     cantidad: 0,
+    pedido: 0,
+    index: 0,
   },
   computed: {
     totall() {
@@ -124,9 +127,6 @@ let app = new Vue({
         return (total += element.total);
       });
       return total;
-    },
-    cant() {
-      return (this.cantidad = this.dataTable.length);
     },
   },
   methods: {
@@ -157,23 +157,64 @@ let app = new Vue({
             if (element.id === item.id) {
               console.log("Entro en el if");
               let index = this.dataTable.indexOf(element);
-              let borrar = this.dataTable.splice(index, 1);
-              console.log(borrar);
-              this.dataTable.push(item);
+              this.dataTable[index].element.cant = item.cant;
             }
           });
         }
       }
+      this.cantidad = this.dataTable.length;
+    },
+    cancel() {
+      if (this.dataTable > 0) {
+        this.dataTable = [];
+        alert("Se ha cancelado el pedido");
+        this.cantidad = this.dataTable.length;
+      } else {
+        console.log('Salir');
+      }
+      
+    },
+    toBuy() {
+      if (this.dataTable.length > 0) {
+        this.pedido++;
+        this.dataEmployee.push({
+          index: this.index,
+          idModal: `#pedido${this.pedido}`,
+          id: `pedido${this.pedido}`,
+          pedido: this.pedido,
+          status: "Preparando",
+          producto: this.dataTable,
+        });
+        this.index++;
+        this.dataTable = [];
+        this.cantidad = this.dataTable.length;
+      } else {
+        alert("No hay productos para comprar");
+      }
     },
     deleteProduct: function (index) {
       this.dataTable.splice(index, 1);
-      this.id--;
+      this.cantidad = this.dataTable.length;
     },
     getOut() {
-      this.viewMain = 0;
+      if (this.viewMain == 0) {
+        this.userId = "1234";
+        this.userPin="1234"
+      } else {
+        this.userId = "1234";
+        this.userPin = "1234";
+        this.viewMain = 0;
+      }
     },
     login() {
-      this.viewMain = 1;
+      let login = this.dataUser.find((element) => {
+          return element
+      })
+      if (login.userId == this.userId && login.userPin == this.userPin) {
+        return this.viewMain = 1;
+      } else {
+        alert('Usuario/Clave son incorrectos')
+      }
     },
     waiter() {
       this.viewEmployee = 2;
