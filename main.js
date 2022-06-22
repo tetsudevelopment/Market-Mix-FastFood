@@ -111,8 +111,8 @@ let app = new Vue({
     ], //Datos Usuario
     dataTable: [], //tabla del carrito
     dataEmployee: [],
-    userId: "",
-    userPin: "",
+    userId: "1234",
+    userPin: "1234",
     viewMain: 0,
     viewEmployee: 0,
     total: 0,
@@ -165,9 +165,14 @@ let app = new Vue({
       this.cantidad = this.dataTable.length;
     },
     cancel() {
-      this.dataTable = [];
-      alert("Se ha cancelado el pedido");
-      this.cantidad = this.dataTable.length;
+      if (this.dataTable > 0) {
+        this.dataTable = [];
+        alert("Se ha cancelado el pedido");
+        this.cantidad = this.dataTable.length;
+      } else {
+        console.log('Salir');
+      }
+      
     },
     toBuy() {
       if (this.dataTable.length > 0) {
@@ -192,26 +197,24 @@ let app = new Vue({
       this.cantidad = this.dataTable.length;
     },
     getOut() {
-      // if (this.viewMain == 0) {
-      //   this.userId = "";
-      //   this.userPin=""
-      // } else {
-      //   this.userId = "";
-      //   this.userPin = "";
-      //   this.viewMain = 0;
-      // }
-      this.viewMain = 0;
+      if (this.viewMain == 0) {
+        this.userId = "1234";
+        this.userPin="1234"
+      } else {
+        this.userId = "1234";
+        this.userPin = "1234";
+        this.viewMain = 0;
+      }
     },
     login() {
-      // let login = this.dataUser.find((element) => {
-      //     return element
-      // })
-      // if (login.userId == this.userId && login.userPin == this.userPin) {
-      //   return this.viewMain = 1;
-      // } else {
-      //   alert('Usuario/Clave son incorrectos')
-      // }
-      this.viewMain = 1;
+      let login = this.dataUser.find((element) => {
+          return element
+      })
+      if (login.userId == this.userId && login.userPin == this.userPin) {
+        return this.viewMain = 1;
+      } else {
+        alert('Usuario/Clave son incorrectos')
+      }
     },
     waiter() {
       this.viewEmployee = 2;
