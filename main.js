@@ -118,7 +118,7 @@ let app = new Vue({
     total: 0,
     cantidad: 0,
     pedido: 0,
-    index: 0,
+    pago: 0,
   },
   computed: {
     totall() {
@@ -165,41 +165,54 @@ let app = new Vue({
       this.cantidad = this.dataTable.length;
     },
     cancel() {
-      if (this.dataTable > 0) {
-        this.dataTable = [];
-        alert("Se ha cancelado el pedido");
-        this.cantidad = this.dataTable.length;
-      } else {
-        console.log('Salir');
-      }
-      
-    },
-    toBuy() {
       if (this.dataTable.length > 0) {
+        alert("Su pedido a sido cancelado");
         this.pedido++;
         this.dataEmployee.push({
-          index: this.index,
+          idModal: `#pedido${this.pedido}`,
+          id: `pedido${this.pedido}`,
+          pedido: this.pedido,
+          status: "Cancelado",
+          total:this.total,
+          producto: this.dataTable,
+        });
+        this.dataTable = [];
+        this.cantidad = this.dataTable.length; 
+      } else {
+        console.log("Salir");
+      }
+    },
+    toBuy() {
+      if (this.pago == 0) {
+        alert('Seleccione un metodo de pago')
+      }else if (this.dataTable.length > 0) {
+        this.pedido++;
+        this.dataEmployee.push({
           idModal: `#pedido${this.pedido}`,
           id: `pedido${this.pedido}`,
           pedido: this.pedido,
           status: "Preparando",
+          total: this.total,
           producto: this.dataTable,
         });
-        this.index++;
         this.dataTable = [];
         this.cantidad = this.dataTable.length;
+        alert('Su compra a sido satisfactoria')
       } else {
-        alert("No hay productos para comprar");
+        console.log('Error');
       }
     },
-    deleteProduct: function (index) {
+    buy() {
+      alert("No tiene productos que comprar");
+    },
+    deleteProduct(index) {
       this.dataTable.splice(index, 1);
       this.cantidad = this.dataTable.length;
     },
     getOut() {
       if (this.viewMain == 0) {
         this.userId = "1234";
-        this.userPin="1234"
+        this.userPin = "1234";
       } else {
         this.userId = "1234";
         this.userPin = "1234";
@@ -208,19 +221,31 @@ let app = new Vue({
     },
     login() {
       let login = this.dataUser.find((element) => {
-          return element
-      })
+        return element;
+      });
       if (login.userId == this.userId && login.userPin == this.userPin) {
-        return this.viewMain = 1;
+        return (this.viewMain = 1);
       } else {
-        alert('Usuario/Clave son incorrectos')
+        alert("Usuario/Clave son incorrectos");
       }
     },
-    waiter() {
-      this.viewEmployee = 2;
+    employee(value) {
+      if (value == 1) {
+        this.viewEmployee = 1;
+      } else if (value == 2) {
+        this.viewEmployee = 2;
+      } else {
+        this.viewEmployee = 3;
+      }
     },
-    cook() {
-      this.viewEmployee = 1;
-    },
+    ok(index) {
+      if (this.viewEmployee == 1) {
+        this.dataEmployee[index].status = 'Listo';
+      } else if (this.viewEmployee == 2) {
+        this.dataEmployee[index].status = "Entregado";
+      } else {
+        
+      }
+    }
   },
 });
