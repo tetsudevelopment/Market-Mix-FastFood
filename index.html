@@ -556,6 +556,8 @@
       <!-- /Modal -->
 
     </div>
+
+    <!-- VISTAS EMPLEADOS -->
     <div class="container-fluid" v-if="viewMain===1">
       <!-- Header -->
       <nav id="header" class="container-fluid navbar navbar-expand navbar-dark bg-dark fixed-top mb-5">
@@ -676,14 +678,14 @@
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody v-for="item in dataEmployee">
+            <tbody v-for="(item,index) in dataEmployee">
               <template v-if="item.status=='Listo'">
                 <tr>
                   <th scope="row">{{item.pedido}}</th>
                   <th scope="row">{{item.status}}</th>
                   <td><button type="button" class="btn btn-warning" data-bs-toggle="modal"
                       :data-bs-target="item.idModal">Ver</button>
-                    <button type="button" class="btn btn-success">Ok</button>
+                    <button type="button" class="btn btn-success" @click="ok(index)">Ok</button>
                   </td>
                 </tr>
               </template>
@@ -695,6 +697,35 @@
         <!-- Tabla Admin -->
         <div class="m-5 text-center" id="admin" v-if="viewEmployee===3">
           <h1>Administrador</h1>
+          <div class="container" >
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <table class="table table-dark table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Pedidos</th>
+                      <th scope="col">Cantitad</th>
+                      <th scope="col">Valor Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template>
+                      <tr>
+                        <th scope="row"><span v-text="dataAdmin.cancelName"></span></th>
+                        <th scope="row"><span v-text="dataAdmin.cancelLength"></span></th>
+                        <th scope="row">$<span v-text="dataAdmin.cancelTotal"></span></th>
+                      </tr>
+                      <tr>
+                        <th scope="row"><span v-text="dataAdmin.entregadoName"></span></th>
+                        <th scope="row"><span v-text="dataAdmin.entregadoLength"></span></th>
+                        <th scope="row">$<span v-text="dataAdmin.entregadoTotal"></span></th>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
           <table class="table table-dark table-striped table-hover">
             <thead>
               <tr>
@@ -710,7 +741,6 @@
                   <th scope="row">{{item.status}}</th>
                   <td><button type="button" class="btn btn-warning" data-bs-toggle="modal"
                       :data-bs-target="item.idModal">Ver</button>
-                    <button type="button" class="btn btn-success" >Ok</button>
                   </td>
                 </tr>
               </template>
@@ -723,7 +753,7 @@
 
       <!-- Modal -->
       <!-- Ver pedido -->
-      <div class="modal fade" v-for="item in dataEmployee" :id="item.id" tabindex="-1"
+      <div class="modal fade" v-for="(item,index) in dataEmployee" :id="item.id" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -755,7 +785,7 @@
               </table>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success">Preparado</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click="ok(index)" v-if="viewEmployee==1 || viewEmployee==2">Preparado</button>
               </div>
             </div>
           </div>

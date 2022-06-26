@@ -119,15 +119,24 @@ let app = new Vue({
     cantidad: 0,
     pedido: 0,
     pago: 0,
+    dataAdmin: {
+      cancelTotal: 0,
+      entregadoTotal: 0,
+      cancelLength: 0,
+      entregadoLength: 0,
+      cancelName: 'Cancelado',
+      entregadoName: 'Entregado',
+      total:0,
+    }
   },
   computed: {
     totall() {
-      let total = this.total;
+      this.total;
       this.dataTable.forEach((element) => {
-        return (total += element.total);
+        return (this.total += element.total);
       });
-      return total;
-    },
+      return this.total;
+    }
   },
   methods: {
     cant(item, value) {
@@ -173,9 +182,10 @@ let app = new Vue({
           id: `pedido${this.pedido}`,
           pedido: this.pedido,
           status: "Cancelado",
-          total:this.total,
+          total: this.total,
           producto: this.dataTable,
         });
+        this.total = 0;
         this.dataTable = [];
         this.cantidad = this.dataTable.length; 
       } else {
@@ -195,6 +205,7 @@ let app = new Vue({
           total: this.total,
           producto: this.dataTable,
         });
+        this.total = 0;
         this.dataTable = [];
         this.cantidad = this.dataTable.length;
         alert('Su compra a sido satisfactoria')
@@ -210,14 +221,10 @@ let app = new Vue({
       this.cantidad = this.dataTable.length;
     },
     getOut() {
-      if (this.viewMain == 0) {
-        this.userId = "1234";
-        this.userPin = "1234";
-      } else {
-        this.userId = "1234";
-        this.userPin = "1234";
-        this.viewMain = 0;
-      }
+      this.viewMain = 0;
+      this.viewEmployee = 0;
+      this.userId = '';
+      this.userPin = '';
     },
     login() {
       let login = this.dataUser.find((element) => {
@@ -236,6 +243,7 @@ let app = new Vue({
         this.viewEmployee = 2;
       } else {
         this.viewEmployee = 3;
+        this.admin();
       }
     },
     ok(index) {
@@ -246,6 +254,26 @@ let app = new Vue({
       } else {
         
       }
-    }
+    },
+    admin() {
+      this.valueAdmin();
+      this.dataEmployee.forEach((element) => {
+        if (element.status == 'Cancelado') {
+          this.dataAdmin.cancelTotal = this.dataAdmin.cancelTotal+ element.total;
+          this.dataAdmin.cancelLength += element.producto.length;
+        } else if (element.status == "Entregado") {
+          this.dataAdmin.entregadoTotal += element.total;
+          this.dataAdmin.entregadoLength += element.producto.length;
+        }
+      });
+      this.dataAdmin.total = this.dataAdmin.cancelTotal + this.dataAdmin.entregadoTotal;
+    },
+    valueAdmin() {
+      this.dataAdmin.cancelTotal = 0;
+      this.dataAdmin.cancelLength = 0;
+      this.dataAdmin.entregadoTotal = 0;
+      this.dataAdmin.entregadoLength = 0;
+      this.dataAdmin.total = 0;
+    },
   },
 });
