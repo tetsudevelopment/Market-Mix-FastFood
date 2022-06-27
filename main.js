@@ -118,16 +118,25 @@ let app = new Vue({
     total: 0,
     cantidad: 0,
     pedido: 0,
-    index: 0,
+    pago: 0,
+    dataAdmin: {
+      cancelTotal: 0,
+      entregadoTotal: 0,
+      cancelLength: 0,
+      entregadoLength: 0,
+      cancelName: 'Cancelado',
+      entregadoName: 'Entregado',
+      total:0,
+    }
   },
   computed: {
     totall() {
-      let total = this.total;
+      this.total;
       this.dataTable.forEach((element) => {
-        return (total += element.total);
+        return (this.total += element.total);
       });
-      return total;
-    },
+      return this.total;
+    }
   },
   methods: {
     cant(item, value) {
@@ -165,62 +174,106 @@ let app = new Vue({
       this.cantidad = this.dataTable.length;
     },
     cancel() {
-      if (this.dataTable > 0) {
-        this.dataTable = [];
-        alert("Se ha cancelado el pedido");
-        this.cantidad = this.dataTable.length;
-      } else {
-        console.log('Salir');
-      }
-      
-    },
-    toBuy() {
       if (this.dataTable.length > 0) {
+        alert("Su pedido a sido cancelado");
         this.pedido++;
         this.dataEmployee.push({
-          index: this.index,
+          idModal: `#pedido${this.pedido}`,
+          id: `pedido${this.pedido}`,
+          pedido: this.pedido,
+          status: "Cancelado",
+          total: this.total,
+          producto: this.dataTable,
+        });
+        this.total = 0;
+        this.dataTable = [];
+        this.cantidad = this.dataTable.length; 
+      } else {
+        console.log("Salir");
+      }
+    },
+    toBuy() {
+      if (this.pago == 0) {
+        alert('Seleccione un metodo de pago')
+      }else if (this.dataTable.length > 0) {
+        this.pedido++;
+        this.dataEmployee.push({
           idModal: `#pedido${this.pedido}`,
           id: `pedido${this.pedido}`,
           pedido: this.pedido,
           status: "Preparando",
+          total: this.total,
           producto: this.dataTable,
         });
-        this.index++;
+        this.total = 0;
         this.dataTable = [];
         this.cantidad = this.dataTable.length;
+        alert('Su compra a sido satisfactoria')
       } else {
-        alert("No hay productos para comprar");
+        console.log('Error');
       }
     },
-    deleteProduct: function (index) {
+    buy() {
+      alert("No tiene productos que comprar");
+    },
+    deleteProduct(index) {
       this.dataTable.splice(index, 1);
       this.cantidad = this.dataTable.length;
     },
     getOut() {
-      if (this.viewMain == 0) {
-        this.userId = "1234";
-        this.userPin="1234"
-      } else {
-        this.userId = "1234";
-        this.userPin = "1234";
-        this.viewMain = 0;
-      }
+      this.viewMain = 0;
+      this.viewEmployee = 0;
+      this.userId = '';
+      this.userPin = '';
     },
     login() {
       let login = this.dataUser.find((element) => {
-          return element
-      })
+        return element;
+      });
       if (login.userId == this.userId && login.userPin == this.userPin) {
-        return this.viewMain = 1;
+        return (this.viewMain = 1);
       } else {
-        alert('Usuario/Clave son incorrectos')
+        alert("Usuario/Clave son incorrectos");
       }
     },
-    waiter() {
-      this.viewEmployee = 2;
+    employee(value) {
+      if (value == 1) {
+        this.viewEmployee = 1;
+      } else if (value == 2) {
+        this.viewEmployee = 2;
+      } else {
+        this.viewEmployee = 3;
+        this.admin();
+      }
     },
-    cook() {
-      this.viewEmployee = 1;
+    ok(index) {
+      if (this.viewEmployee == 1) {
+        this.dataEmployee[index].status = 'Listo';
+      } else if (this.viewEmployee == 2) {
+        this.dataEmployee[index].status = "Entregado";
+      } else {
+        
+      }
+    },
+    admin() {
+      this.valueAdmin();
+      this.dataEmployee.forEach((element) => {
+        if (element.status == 'Cancelado') {
+          this.dataAdmin.cancelTotal = this.dataAdmin.cancelTotal+ element.total;
+          this.dataAdmin.cancelLength += element.producto.length;
+        } else if (element.status == "Entregado") {
+          this.dataAdmin.entregadoTotal += element.total;
+          this.dataAdmin.entregadoLength += element.producto.length;
+        }
+      });
+      this.dataAdmin.total = this.dataAdmin.cancelTotal + this.dataAdmin.entregadoTotal;
+    },
+    valueAdmin() {
+      this.dataAdmin.cancelTotal = 0;
+      this.dataAdmin.cancelLength = 0;
+      this.dataAdmin.entregadoTotal = 0;
+      this.dataAdmin.entregadoLength = 0;
+      this.dataAdmin.total = 0;
     },
   },
 });

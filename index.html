@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/images/LogoPrimary.ico">
   <title>Comidas rapidas la 14</title>
-</head>
+</head> 
 
 <body data-bs-spy="scroll" data-bs-target="#navbar">
   <div id="app">
@@ -497,9 +497,9 @@
                 </tbody>
               </table>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                  @click="cancel">Cancelar</button>
-                <button type="button" class="btn btn-danger" @click="toBuy">Comprar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="cancel">Cancela</button>
+                <button type="button" class="btn btn-primary" @click="buy" v-if="dataTable.length===0">Comprar</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pagos" v-else>Comprar</button>
               </div>
             </div>
           </div>
@@ -507,9 +507,57 @@
       </div>
       <!-- /Carrito de compras -->
 
-
+      <!-- Comprar -->
+      <div class="modal fade" id="pagos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Metodos de pago</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex justify-content-center mt-3">
+                <div class="col-1 d-flex align-items-center ">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1"
+                    v-model="pago">
+                </div>
+                <div class="col-4 align-items-end">
+                  <img src="assets/images/nequi.svg" alt="" style="width: 200px; height: 50px;" class="align-items-end">
+                </div>
+              </div>
+              <div class="d-flex justify-content-center mt-3">
+                <div class="col-1 d-flex align-items-center ">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="2"
+                    v-model="pago">
+                </div>
+                <div class="col-4 align-items-end">
+                  <img src="assets/images/mastercard.svg" alt="" style="width: 200px; height: 50px;" class="align-items-end">
+                </div>
+              </div>
+              <div class="d-flex justify-content-center mt-3">
+                <div class="col-1 d-flex align-items-center ">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="3"
+                    v-model="pago">
+                </div>
+                <div class="col-4 align-items-end">
+                  <img src="assets/images/efectivo.svg" alt="" style="width: 200px; height: 50px;" class="align-items-end">
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
+              <button type="button" class="btn btn-danger" @click="toBuy" v-if="pago==0">Pagar</button>
+              <button type="button" class="btn btn-danger" @click="toBuy" data-bs-dismiss="modal" v-else>Pagar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Comprar -->
+      <!-- /Modal -->
 
     </div>
+
+    <!-- VISTAS EMPLEADOS -->
     <div class="container-fluid" v-if="viewMain===1">
       <!-- Header -->
       <nav id="header" class="container-fluid navbar navbar-expand navbar-dark bg-dark fixed-top mb-5">
@@ -554,8 +602,8 @@
           </div>
           <!-- Cards -->
           <div class="row">
-            <div class="employee col-md-6 col-12 mb-4">
-              <div class="card text-center btn" @click="cook">
+            <div class="employee col-md-4 col-12 mb-4">
+              <div class="card text-center btn" @click="employee(1)">
                 <div class="card-main">
                   <img src="assets/images/cocinero.png" class="card-img-top" alt="cocinero">
                 </div>
@@ -564,13 +612,23 @@
                 </div>
               </div>
             </div>
-            <div class="employee col-md-6 col-12 mb-4">
-              <div class="card text-center btn" @click="waiter">
+            <div class="employee col-md-4 col-12 mb-4">
+              <div class="card text-center btn" @click="employee(2)">
                 <div class="card-main">
                   <img src="assets/images/mesero.png" class="card-img-top" alt="cocinero">
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Mesero</h5>
+                </div>
+              </div>
+            </div>
+            <div class="employee col-md-4 col-12 mb-4">
+              <div class="card text-center btn" @click="employee(3)">
+                <div class="card-main">
+                  <img src="assets/images/admin.png" class="card-img-top" alt="cocinero">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Administrador</h5>
                 </div>
               </div>
             </div>
@@ -594,22 +652,16 @@
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody v-for="item in dataEmployee">
+            <tbody v-for="(item,index) in dataEmployee">
               <template v-if="item.status=='Preparando'">
                 <tr>
                   <th scope="row">{{item.pedido}}</th>
                   <th scope="row">{{item.status}}</th>
                   <td><button type="button" class="btn btn-warning" data-bs-toggle="modal" :data-bs-target="item.idModal">Ver</button>
-                    <button type="button" class="btn btn-success">Ok</button>
+                    <button type="button" class="btn btn-success" @click="ok(index)">Ok</button>
                   </td>
                 </tr>
               </template>
-              <template v-else>
-                <tr>
-                  <td colspan="3">NO existen pedidos</td>
-                </tr>
-              </template>
-            
             </tbody>
           </table>
         </div>
@@ -626,26 +678,82 @@
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <th scope="row">Listo</th>
-                <td>
-                  <button type="button" class="btn btn-success">Ok</button>
-                </td>
-              </tr>
+            <tbody v-for="(item,index) in dataEmployee">
+              <template v-if="item.status=='Listo'">
+                <tr>
+                  <th scope="row">{{item.pedido}}</th>
+                  <th scope="row">{{item.status}}</th>
+                  <td><button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                      :data-bs-target="item.idModal">Ver</button>
+                    <button type="button" class="btn btn-success" @click="ok(index)">Ok</button>
+                  </td>
+                </tr>
+              </template>
             </tbody>
           </table>
         </div>
         <!-- /Tabla mesero -->
-        <!-- /Tablas administrativos -->
 
+        <!-- Tabla Admin -->
+        <div class="m-5 text-center" id="admin" v-if="viewEmployee===3">
+          <h1>Administrador</h1>
+          <div class="container" >
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <table class="table table-dark table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Pedidos</th>
+                      <th scope="col">Cantitad</th>
+                      <th scope="col">Valor Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template>
+                      <tr>
+                        <th scope="row"><span v-text="dataAdmin.cancelName"></span></th>
+                        <th scope="row"><span v-text="dataAdmin.cancelLength"></span></th>
+                        <th scope="row">$<span v-text="dataAdmin.cancelTotal"></span></th>
+                      </tr>
+                      <tr>
+                        <th scope="row"><span v-text="dataAdmin.entregadoName"></span></th>
+                        <th scope="row"><span v-text="dataAdmin.entregadoLength"></span></th>
+                        <th scope="row">$<span v-text="dataAdmin.entregadoTotal"></span></th>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <table class="table table-dark table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">N° Pedido</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody v-for="item in dataEmployee">
+              <template v-if="item.status=='Entregado' || item.status==='Cancelado'">
+                <tr>
+                  <th scope="row">{{item.pedido}}</th>
+                  <th scope="row">{{item.status}}</th>
+                  <td><button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                      :data-bs-target="item.idModal">Ver</button>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+        <!-- /Tabla Admin -->
       </section>
       <!-- /Tablas administrativos -->
 
       <!-- Modal -->
       <!-- Ver pedido -->
-      <div class="modal fade" v-for="item in dataEmployee" :id="item.id" tabindex="-1"
+      <div class="modal fade" v-for="(item,index) in dataEmployee" :id="item.id" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -677,7 +785,7 @@
               </table>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success">Preparado</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click="ok(index)" v-if="viewEmployee==1 || viewEmployee==2">Preparado</button>
               </div>
             </div>
           </div>
