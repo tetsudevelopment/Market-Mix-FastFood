@@ -260,10 +260,10 @@ let app = new Vue({
       this.dataEmployee.forEach((element) => {
         if (element.status == 'Cancelado') {
           this.dataAdmin.cancelTotal = this.dataAdmin.cancelTotal+ element.total;
-          this.dataAdmin.cancelLength += element.producto.length;
+          this.dataAdmin.cancelLength += 1;
         } else if (element.status == "Entregado") {
           this.dataAdmin.entregadoTotal += element.total;
-          this.dataAdmin.entregadoLength += element.producto.length;
+          this.dataAdmin.entregadoLength += 1;
         }
       });
       this.dataAdmin.total = this.dataAdmin.cancelTotal + this.dataAdmin.entregadoTotal;
